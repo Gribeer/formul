@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gribeer – Solicitud de Servicios para tu Evento</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8C97A;
+    --dark: #0F0F0F;
+    --dark2: #1A1A1A;
+    --dark3: #242424;
+    --border: #2E2E2E;
+    --text: #E8E4DC;
+    --muted: #888;
+    --accent: #C9A84C;
+    --white: #FDFAF4;
+    --section-bg: #161616;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--dark);
+    color: var(--text);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  /* HEADER */
+  header {
+    background: var(--dark2);
+    border-bottom: 1px solid var(--border);
+    padding: 28px 24px 20px;
+    text-align: center;
+  }
+
+  header img {
+    height: 52px;
+    margin-bottom: 8px;
+    filter: brightness(0) invert(1);
+  }
+
+  .tagline {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #0F0F0F 0%, #1C1608 50%, #0F0F0F 100%);
+    padding: 52px 24px 44px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 5vw, 42px);
+    line-height: 1.2;
+    margin-bottom: 16px;
+    color: var(--white);
+  }
+
+  .hero h1 em {
+    color: var(--gold);
+    font-style: italic;
+  }
+
+  .hero p {
+    max-width: 560px;
+    margin: 0 auto;
+    color: var(--muted);
+    font-size: 15px;
+  }
+
+  /* MAIN CONTAINER */
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 16px 80px;
+  }
+
+  /* DOSSIER CARD */
+  .dossier-card {
+    background: var(--dark3);
+    border: 1px solid var(--gold);
+    border-radius: 12px;
+    padding: 28px 32px;
+    margin: 36px 0;
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+  }
+
+  .dossier-icon {
+    font-size: 36px;
+    flex-shrink: 0;
+    line-height: 1;
+  }
+
+  .dossier-text h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: var(--gold);
+    margin-bottom: 4px;
+  }
+
+  .dossier-text p {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
+
+  .dossier-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 18px;
+    border: 1px solid var(--gold);
+    border-radius: 6px;
+    color: var(--gold);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.2s;
+    background: transparent;
+    cursor: pointer;
+    font-family: inherit;
+  }
+
+  .btn-outline:hover {
+    background: var(--gold);
+    color: var(--dark);
+  }
+
+  /* SECTION */
+  .form-section {
+    background: var(--section-bg);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    margin-bottom: 20px;
+    overflow: hidden;
+  }
+
+  .section-header {
+    background: var(--dark3);
+    padding: 20px 28px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-number {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--gold);
+    color: var(--dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+
+  .section-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: var(--white);
+    font-weight: 700;
+  }
+
+  .section-body {
+    padding: 28px;
+  }
+
+  /* FORM GRID */
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .form-grid .full {
+    grid-column: 1 / -1;
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  label {
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="date"],
+  select,
+  textarea {
+    background: var(--dark2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 14px;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 14px;
+    transition: border-color 0.2s;
+    outline: none;
+    width: 100%;
+  }
+
+  input:focus, select:focus, textarea:focus {
+    border-color: var(--gold);
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+
+  select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 36px;
+    cursor: pointer;
+  }
+
+  select option { background: var(--dark2); }
+
+  /* DIVIDER */
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 24px 0;
+  }
+
+  /* SUBSECTION */
+  .subsection-title {
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 500;
+    margin-bottom: 14px;
+    margin-top: 4px;
+  }
+
+  .hint {
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
+
+  .hint strong {
+    color: var(--gold-light);
+  }
+
+  /* RADIO / CHECKBOX GROUPS */
+  .radio-group, .check-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .radio-option, .check-option {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 11px 14px;
+    background: var(--dark2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+    font-size: 14px;
+  }
+
+  .radio-option:hover, .check-option:hover {
+    border-color: var(--gold);
+    background: #1E1A0F;
+  }
+
+  .radio-option input, .check-option input {
+    accent-color: var(--gold);
+    margin-top: 2px;
+    flex-shrink: 0;
+    width: auto;
+  }
+
+  .radio-option.selected, .check-option.selected {
+    border-color: var(--gold);
+    background: #201B0D;
+  }
+
+  .option-label { font-weight: 400; color: var(--text); }
+  .option-price { color: var(--gold); font-weight: 600; margin-left: auto; padding-left: 12px; white-space: nowrap; }
+
+  /* PACK CARDS */
+  .pack-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
+  }
+
+  .pack-card {
+    background: var(--dark2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+    position: relative;
+  }
+
+  .pack-card:hover {
+    border-color: var(--gold);
+    background: #1E1A0F;
+  }
+
+  .pack-card.selected {
+    border-color: var(--gold);
+    background: #201B0D;
+  }
+
+  .pack-card input {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    accent-color: var(--gold);
+    width: auto;
+  }
+
+  .pack-card h4 {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 4px;
+    padding-right: 20px;
+    line-height: 1.3;
+  }
+
+  .pack-card p {
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+
+  .pack-price {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--gold);
+  }
+
+  /* ACCESSORIES GRID */
+  .acc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 8px;
+  }
+
+  .acc-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--dark2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 12px;
+    cursor: pointer;
+    transition: border-color 0.2s;
+    font-size: 13px;
+  }
+
+  .acc-item:hover { border-color: var(--gold); }
+  .acc-item.selected { border-color: var(--gold); background: #201B0D; }
+  .acc-item input { accent-color: var(--gold); flex-shrink: 0; width: auto; }
+  .acc-item span { flex: 1; color: var(--text); }
+  .acc-item .acc-price { color: var(--gold); font-weight: 600; white-space: nowrap; }
+
+  /* RADIO PILLS */
+  .pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .pill {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    background: var(--dark2);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: all 0.2s;
+  }
+
+  .pill:hover, .pill.selected {
+    border-color: var(--gold);
+    background: #201B0D;
+    color: var(--gold);
+  }
+
+  .pill input { accent-color: var(--gold); width: auto; }
+
+  /* EXTRAS */
+  .extras-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  /* BUDGET BOX */
+  .budget-box {
+    background: var(--dark3);
+    border: 1px solid var(--gold);
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .budget-box .label {
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .budget-amount {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  .budget-note {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+
+  /* PRIVACY + HOW */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  .radio-group-inline {
+    display: flex;
+    gap: 12px;
+  }
+
+  .radio-group-inline .radio-option {
+    flex: 1;
+  }
+
+  /* PRIVACY CHECK */
+  .privacy-check {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    background: var(--dark2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px;
+    font-size: 13px;
+    color: var(--muted);
+    margin: 16px 0;
+    cursor: pointer;
+  }
+
+  .privacy-check input { accent-color: var(--gold); margin-top: 2px; width: auto; flex-shrink: 0; }
+  .privacy-check a { color: var(--gold); text-decoration: none; }
+  .privacy-check a:hover { text-decoration: underline; }
+
+  /* SUBMIT */
+  .btn-submit {
+    width: 100%;
+    padding: 18px;
+    background: var(--gold);
+    color: var(--dark);
+    border: none;
+    border-radius: 10px;
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    margin-top: 8px;
+    letter-spacing: 0.5px;
+  }
+
+  .btn-submit:hover { background: var(--gold-light); }
+  .btn-submit:active { transform: scale(0.99); }
+
+  .submit-note {
+    text-align: center;
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 10px;
+  }
+
+  /* SUCCESS */
+  .success-screen {
+    display: none;
+    text-align: center;
+    padding: 60px 28px;
+  }
+
+  .success-screen .check {
+    font-size: 56px;
+    margin-bottom: 20px;
+  }
+
+  .success-screen h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+
+  .success-screen p {
+    color: var(--muted);
+    max-width: 440px;
+    margin: 0 auto 28px;
+    font-size: 15px;
+  }
+
+  .success-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 12px;
+  }
+
+  .success-links a {
+    color: var(--gold);
+    text-decoration: none;
+    font-size: 14px;
+    border: 1px solid var(--border);
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: border-color 0.2s;
+  }
+
+  .success-links a:hover { border-color: var(--gold); }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 32px;
+    font-size: 12px;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+    margin-top: 40px;
+  }
+
+  footer a { color: var(--gold); text-decoration: none; }
+
+  /* COOKIE BANNER */
+  .cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--dark3);
+    border-top: 1px solid var(--border);
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    z-index: 100;
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  .cookie-banner a { color: var(--gold); text-decoration: none; }
+
+  .cookie-buttons {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+
+  .btn-cookie {
+    padding: 8px 18px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 500;
+    transition: all 0.2s;
+  }
+
+  .btn-cookie.primary {
+    background: var(--gold);
+    color: var(--dark);
+    border-color: var(--gold);
+  }
+
+  .btn-cookie.secondary {
+    background: transparent;
+    color: var(--text);
+  }
+
+  .btn-cookie:hover { opacity: 0.85; }
+
+  @media (max-width: 600px) {
+    .form-grid { grid-template-columns: 1fr; }
+    .form-grid .full { grid-column: 1; }
+    .two-col { grid-template-columns: 1fr; }
+    .dossier-card { flex-direction: column; }
+    .pack-cards { grid-template-columns: 1fr; }
+    .radio-group-inline { flex-direction: column; }
+    .budget-box { flex-direction: column; text-align: center; }
+    .section-body { padding: 20px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- COOKIE BANNER -->
+<div class="cookie-banner" id="cookieBanner">
+  <span>🍪 Usamos cookies propias y de terceros para mejorar tu experiencia y analizar el tráfico. Al continuar navegando aceptas su uso según nuestra <a href="https://gribeer.com/en/politica-de-privacidad/" target="_blank">Política de Privacidad</a>.</span>
+  <div class="cookie-buttons">
+    <button class="btn-cookie primary" onclick="document.getElementById('cookieBanner').style.display='none'">Aceptar todas</button>
+    <button class="btn-cookie secondary" onclick="document.getElementById('cookieBanner').style.display='none'">Solo necesarias</button>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <img src="https://gribeer-form.vercel.app/logo.png" alt="Gribeer" onerror="this.style.display='none';document.getElementById('logoText').style.display='block'">
+  <div id="logoText" style="display:none;font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--gold);letter-spacing:2px">GRIBEER</div>
+  <div class="tagline">Ferias · Eventos · Congresos</div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>Solicitud de Servicios para <em>tu Evento</em></h1>
+  <p>Selecciona los servicios que necesitas. Nuestro equipo preparará tu presupuesto personalizado en menos de 24 h.</p>
+</div>
+
+<div class="container">
+
+  <!-- DOSSIER -->
+  <div class="dossier-card">
+    <div class="dossier-icon">📄</div>
+    <div class="dossier-text">
+      <h3>Dossier de Servicios Gribeer 2026</h3>
+      <p>Consulta nuestro catálogo completo de servicios y después selecciona lo que necesitas en los apartados de abajo.</p>
+      <div class="dossier-buttons">
+        <a href="https://drive.google.com/file/d/1YYMEJMSUCOCIrNCxzWnHog0O7F72COZM/view" target="_blank" class="btn-outline">↗ Abrir en pantalla completa</a>
+        <a href="https://drive.google.com/uc?export=download&id=1YYMEJMSUCOCIrNCxzWnHog0O7F72COZM" target="_blank" class="btn-outline">⬇ Descargar PDF</a>
+      </div>
+    </div>
+  </div>
+
+  <form id="mainForm" onsubmit="handleSubmit(event)">
+
+    <!-- SECTION 1: DATOS -->
+    <div class="form-section">
+      <div class="section-header">
+        <div class="section-number">1</div>
+        <h2>Tus datos de contacto</h2>
+      </div>
+      <div class="section-body">
+        <div class="form-grid">
+          <div class="field">
+            <label>Nombre *</label>
+            <input type="text" name="nombre" required placeholder="Tu nombre">
+          </div>
+          <div class="field">
+            <label>Apellidos *</label>
+            <input type="text" name="apellidos" required placeholder="Tus apellidos">
+          </div>
+          <div class="field">
+            <label>Empresa *</label>
+            <input type="text" name="empresa" required placeholder="Nombre de empresa">
+          </div>
+          <div class="field">
+            <label>Cargo</label>
+            <input type="text" name="cargo" placeholder="Tu cargo">
+          </div>
+          <div class="field">
+            <label>Email *</label>
+            <input type="email" name="email" required placeholder="tu@email.com">
+          </div>
+          <div class="field">
+            <label>Teléfono / WhatsApp *</label>
+            <input type="tel" name="telefono" required placeholder="+34 000 000 000">
+          </div>
+          <div class="field">
+            <label>Nombre / Ubicación del evento</label>
+            <input type="text" name="evento" placeholder="Nombre o lugar del evento">
+          </div>
+          <div class="field">
+            <label>Fechas del evento *</label>
+            <input type="text" name="fechas" required placeholder="dd/mm/aaaa – dd/mm/aaaa">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 2: CERVEZA -->
+    <div class="form-section">
+      <div class="section-header">
+        <div class="section-number">2</div>
+        <h2>🍺 Cerveza &amp; Grifos</h2>
+      </div>
+      <div class="section-body">
+        <p class="hint">Grifo <strong>GRATIS</strong> a partir de 2 barriles (Opción 3). Las Opciones 1 y 2 tienen suplemento por bandeja adicional.</p>
+
+        <p class="subsection-title">Tipo de instalación</p>
+        <div class="radio-group" id="grifos">
+          <label class="radio-option" onclick="toggleRadio(this,'grifos',0)">
+            <input type="radio" name="grifo" value="Sin grifo">
+            <span class="option-label">Sin grifo</span>
+          </label>
+          <label class="radio-option" onclick="toggleRadio(this,'grifos',0)">
+            <input type="radio" name="grifo" value="Opción 1 – Bandeja pinza +65€">
+            <span class="option-label">Opción 1 – Bandeja pinza</span><span class="option-price">+65€</span>
+          </label>
+          <label class="radio-option" onclick="toggleRadio(this,'grifos',0)">
+            <input type="radio" name="grifo" value="Opción 2 – Bandeja encastrada +130€">
+            <span class="option-label">Opción 2 – Bandeja encastrada</span><span class="option-price">+130€</span>
+          </label>
+          <label class="radio-option" onclick="toggleRadio(this,'grifos',0)">
+            <input type="radio" name="grifo" value="Opción 3 – Grifo estándar (incluido)">
+            <span class="option-label">Opción 3 – Grifo estándar (incluido)</span>
+          </label>
+          <label class="radio-option" onclick="toggleRadio(this,'grifos',0)">
+            <input type="radio" name="grifo" value="Grifo V-100 Portátil Grande (presupuesto)">
+            <span class="option-label">Grifo V-100 Portátil Grande</span><span class="option-price">Presupuesto</span>
+          </label>
+        </div>
+
+        <hr class="divider">
+        <p class="subsection-title">Pack de barriles</p>
+        <div class="radio-group" id="barriles">
+          <label class="radio-option" onclick="toggleRadio(this,'barriles',0)">
+            <input type="radio" name="barriles" value="Sin barriles" data-price="0">
+            <span class="option-label">Sin barriles</span>
+          </label>
+          <label class="radio-option" onclick="toggleRadio(this,'barriles',198)">
+            <input type="radio" name="barriles" value="Grifo + 1 Barril 30L" data-price="198">
+            <span class="option-label">Grifo + 1 Barril 30L</span><span class="option-price">198€</span>
+          </label>
+          <label class="radio-option" onclick="toggleRadio(this,'barriles',276)">
+            <input type="radio" name="barriles" value="Grifo + 2 Barriles 30L" data-price="276">
+            <span class="option-label">Grifo + 2 Barriles 30L</span><span class="option-price">276€</span>
+          </label>
+        </div>
+
+        <p class="subsection-title" style="margin-top:16px">Barriles adicionales (30L · 138€ c/u)</p>
+        <div class="pills" id="barriles-extra">
+          <label class="pill"><input type="radio" name="barriles_extra" value="Ninguno" onchange="updateBudget()"> Ninguno</label>
+          <label class="pill"><input type="radio" name="barriles_extra" value="+1 138€" data-price="138" onchange="updateBudget()"> +1 <strong>138€</strong></label>
+          <label class="pill"><input type="radio" name="barriles_extra" value="+2 276€" data-price="276" onchange="updateBudget()"> +2 <strong>276€</strong></label>
+          <label class="pill"><input type="radio" name="barriles_extra" value="+3 414€" data-price="414" onchange="updateBudget()"> +3 <strong>414€</strong></label>
+          <label class="pill"><input type="radio" name="barriles_extra" value="+4 552€" data-price="552" onchange="updateBudget()"> +4 <strong>552€</strong></label>
+          <label class="pill"><input type="radio" name="barriles_extra" value="+5 690€" data-price="690" onchange="updateBudget()"> +5 <strong>690€</strong></label>
+        </div>
+
+        <p class="subsection-title" style="margin-top:16px">Marca de cerveza</p>
+        <div class="pills">
+          <label class="pill"><input type="radio" name="marca" value="Indiferente" onchange="pillSync(this)"> Indiferente</label>
+          <label class="pill"><input type="radio" name="marca" value="Mahou" onchange="pillSync(this)"> Mahou</label>
+          <label class="pill"><input type="radio" name="marca" value="Alhambra" onchange="pillSync(this)"> Alhambra</label>
+          <label class="pill"><input type="radio" name="marca" value="Estrella Galicia" onchange="pillSync(this)"> Estrella Galicia</label>
+        </div>
+
+        <hr class="divider">
+        <p class="subsection-title">Pack de vasos</p>
+        <div class="radio-group" id="vasos">
+          <label class="radio-option" onclick="toggleRadio(this,'vasos',0)">
+            <input type="radio" name="vasos" value="Sin vasos" data-price="0">
+            <span class="option-label">Sin vasos</span>
+          </label>
+          <label class="radio-option" onclick="toggleRadio(this,'vasos',25)">
+            <input type="radio" name="vasos" value="100 vasos 0,33cl" data-price="25">
+            <span class="option-label">100 vasos 0,33cl</span><span class="option-price">25€</span>
+          </label>
+          <label class="radio-option" onclick="toggleRadio(this,'vasos',35)">
+            <input type="radio" name="vasos" value="150 vasos 0,33cl" data-price="35">
+            <span class="option-label">150 vasos 0,33cl</span><span class="option-price">35€</span>
+          </label>
+          <label class="radio-option" onclick="toggleRadio(this,'vasos',40)">
+            <input type="radio" name="vasos" value="200 vasos 0,33cl" data-price="40">
+            <span class="option-label">200 vasos 0,33cl</span><span class="option-price">40€</span>
+          </label>
+          <label class="radio-option" onclick="toggleRadio(this,'vasos',0)">
+            <input type="radio" name="vasos" value="Vasos de cristal (presupuesto)" data-price="0">
+            <span class="option-label">Vasos de cristal</span><span class="option-price">Presupuesto</span>
+          </label>
+        </div>
+
+        <hr class="divider">
+        <p class="subsection-title">Extras cerveza</p>
+        <div class="check-group extras-list">
+          <label class="check-option" onclick="toggleCheck(this,0)">
+            <input type="checkbox" name="extras_cerveza" value="Logo en grifo (incluido)">
+            <span class="option-label">Logo en grifo <small style="color:var(--muted)">(incluido)</small></span>
+          </label>
+          <label class="check-option" onclick="toggleCheck(this,0)">
+            <input type="checkbox" name="extras_cerveza" value="Servicio de camareros (Presupuesto · Mín 4h)">
+            <span class="option-label">Servicio de camareros</span><span class="option-price">Presupuesto · Mín 4h</span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 3: BEBIDAS -->
+    <div class="form-section">
+      <div class="section-header">
+        <div class="section-number">3</div>
+        <h2>🥤 Packs de Bebidas</h2>
+      </div>
+      <div class="section-body">
+        <div class="pack-cards" id="bebidas-cards">
+          <label class="pack-card" onclick="toggleCard(this,240)">
+            <input type="checkbox" name="bebidas" value="Pack 96 Bebidas 240€" data-price="240">
+            <h4>Pack 96 Bebidas</h4>
+            <p>Nevera acristalada 118L + 96 bebidas variadas</p>
+            <div class="pack-price">240€</div>
+          </label>
+          <label class="pack-card" onclick="toggleCard(this,297)">
+            <input type="checkbox" name="bebidas" value="Pack 144 Bebidas 297€" data-price="297">
+            <h4>Pack 144 Bebidas</h4>
+            <p>Nevera acristalada 118L + 144 bebidas variadas <small>(Nevera 237L +35€)</small></p>
+            <div class="pack-price">297€</div>
+          </label>
+          <label class="pack-card" onclick="toggleCard(this,155)">
+            <input type="checkbox" name="bebidas" value="Pack 100 Café L'OR 155€" data-price="155">
+            <h4>Pack 100 Café L'OR</h4>
+            <p>Cafetera L'OR + 100 cápsulas + vasos, cucharillas, azucarillos y leche</p>
+            <div class="pack-price">155€</div>
+          </label>
+          <label class="pack-card" onclick="toggleCard(this,263)">
+            <input type="checkbox" name="bebidas" value="Pack 200 Café L'OR 263€" data-price="263">
+            <h4>Pack 200 Café L'OR</h4>
+            <p>Cafetera L'OR + 200 cápsulas + vasos, cucharillas, azucarillos y leche</p>
+            <div class="pack-price">263€</div>
+          </label>
+          <label class="pack-card" onclick="toggleCard(this,198)">
+            <input type="checkbox" name="bebidas" value="Pack 100 Café Prof. Zenius 198€" data-price="198">
+            <h4>Pack 100 Café Prof. Zenius</h4>
+            <p>Cafetera Zenius Profesional + 100 cápsulas + accesorios</p>
+            <div class="pack-price">198€</div>
+          </label>
+          <label class="pack-card" onclick="toggleCard(this,320)">
+            <input type="checkbox" name="bebidas" value="Pack 200 Café Prof. Zenius 320€" data-price="320">
+            <h4>Pack 200 Café Prof. Zenius</h4>
+            <p>Cafetera Zenius Profesional + 200 cápsulas + accesorios</p>
+            <div class="pack-price">320€</div>
+          </label>
+          <label class="pack-card" onclick="toggleCard(this,285)">
+            <input type="checkbox" name="bebidas" value="Pack Vino Español 285€" data-price="285">
+            <h4>Pack Vino Español</h4>
+            <p>12 botellas vino (2 variedades) + Cava vino acristalada <small>(Vasos cristal: presupuesto)</small></p>
+            <div class="pack-price">285€</div>
+          </label>
+          <label class="pack-card" onclick="toggleCard(this,394)">
+            <input type="checkbox" name="bebidas" value="Arcón Botellero + 192 Refrescos 394€" data-price="394">
+            <h4>Arcón Botellero + 192 Refrescos</h4>
+            <p>Arcón botellero 200L + 192 refrescos variados</p>
+            <div class="pack-price">394€</div>
+          </label>
+          <label class="pack-card" onclick="toggleCard(this,130)">
+            <input type="checkbox" name="bebidas" value="Fuente Agua Fría y Caliente 130€" data-price="130">
+            <h4>Fuente Agua Fría y Caliente</h4>
+            <p>3 botellas 18,9L + 300 vasos</p>
+            <div class="pack-price">130€</div>
+          </label>
+          <label class="pack-card" onclick="toggleCard(this,0)">
+            <input type="checkbox" name="bebidas" value="Servicios Cocterlería (Presupuesto)" data-price="0">
+            <h4>Servicios Coctelería</h4>
+            <p>Servicio personalizado con camareros</p>
+            <div class="pack-price">Pedir presupuesto</div>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 4: MOBILIARIO -->
+    <div class="form-section">
+      <div class="section-header">
+        <div class="section-number">4</div>
+        <h2>🪑 Mobiliario</h2>
+      </div>
+      <div class="section-body">
+        <div class="pack-cards">
+          <label class="pack-card" onclick="toggleCard(this,170)">
+            <input type="checkbox" name="mobiliario" value="Basic Pack 170€" data-price="170">
+            <h4>Basic Pack</h4>
+            <p>Mesa baja + 3 sillas · Mostrador · Papelera</p>
+            <div class="pack-price">170€</div>
+          </label>
+          <label class="pack-card" onclick="toggleCard(this,295)">
+            <input type="checkbox" name="mobiliario" value="Mid Pack 295€" data-price="295">
+            <h4>Mid Pack</h4>
+            <p>Mesa baja + 3 sillas · Mostrador · Mesa alta + 2 taburetes · 2 Papeleras</p>
+            <div class="pack-price">295€</div>
+          </label>
+          <label class="pack-card" onclick="toggleCard(this,510)">
+            <input type="checkbox" name="mobiliario" value="Pro Pack 510€" data-price="510">
+            <h4>Pro Pack</h4>
+            <p>Mesa baja + sillas · Mostrador · Mesa alta + taburetes · Armario 102cm · Mesa alta + 2 sillas altas · 2 Papeleras</p>
+            <div class="pack-price">510€</div>
+          </label>
+          <label class="pack-card" onclick="toggleCard(this,0)">
+            <input type="checkbox" name="mobiliario" value="Mobiliario a medida (Presupuesto)" data-price="0">
+            <h4>Mobiliario a medida</h4>
+            <p>Otras combinaciones o piezas individuales</p>
+            <div class="pack-price">Pedir presupuesto</div>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 5: CATERING -->
+    <div class="form-section">
+      <div class="section-header">
+        <div class="section-number">5</div>
+        <h2>🍽️ Catering &amp; Food</h2>
+      </div>
+      <div class="section-body">
+        <p class="subsection-title">Productos Gourmet</p>
+        <div class="pack-cards">
+          <label class="pack-card" onclick="toggleCard(this,525)">
+            <input type="checkbox" name="catering" value="Básico Jamón y Queso 525€" data-price="525">
+            <h4>Básico Jamón y Queso</h4>
+            <p>Jamón 50% Ibérico 6-8Kg + Queso Manchego 3Kg + cortado a cuchillo</p>
+            <div class="pack-price">525€</div>
+          </label>
+          <label class="pack-card" onclick="toggleCard(this,0)">
+            <input type="checkbox" name="catering" value="Cortador de Jamón (Desde 550€)" data-price="0">
+            <h4>Cortador de Jamón</h4>
+            <p>Jamón 6-8kg + cortador + platos, picos, servilletas · 1,5-2h</p>
+            <div class="pack-price">Desde 550€</div>
+          </label>
+          <label class="pack-card" onclick="toggleCard(this,460)">
+            <input type="checkbox" name="catering" value="Vino Español 460€" data-price="460">
+            <h4>Vino Español</h4>
+            <p>10 bot. Rioja Reserva + Queso manchego + semi + Chorizo, Lomo, Salchichón <small>(Cava vino +130€)</small></p>
+            <div class="pack-price">460€</div>
+          </label>
+          <label class="pack-card" onclick="toggleCard(this,420)">
+            <input type="checkbox" name="catering" value="Pack Ibéricos + Queso 420€" data-price="420">
+            <h4>Pack Ibéricos + Queso</h4>
+            <p>Caña lomo, Chorizo y Salchichón Ibérico Bellota 1Kg c/u + Queso manchego 3kg</p>
+            <div class="pack-price">420€</div>
+          </label>
+          <label class="pack-card" onclick="toggleCard(this,490)">
+            <input type="checkbox" name="catering" value="Appetizer Gildas 490€" data-price="490">
+            <h4>Appetizer Gildas</h4>
+            <p>100 Gildas Premium + 10 bot. Vermú + hielos, cubitera, 100 vasos, Congelador 100L</p>
+            <div class="pack-price">490€</div>
+          </label>
+        </div>
+
+        <hr class="divider">
+        <p class="subsection-title">Street Food &amp; Experiencias</p>
+        <div class="pack-cards">
+          <label class="pack-card" onclick="toggleCard(this,0)">
+            <input type="checkbox" name="catering" value="Horno Pizza (Desde 365€)" data-price="0">
+            <h4>Horno Pizza</h4>
+            <p>Horno Pizza 2000w + 25 pizzas + platos + servilletas</p>
+            <div class="pack-price">Desde 365€</div>
+          </label>
+          <label class="pack-card" onclick="toggleCard(this,495)">
+            <input type="checkbox" name="catering" value="Pack Palomitas 495€" data-price="495">
+            <h4>Pack Palomitas</h4>
+            <p>Carrito palomitas + 10Kg maíz + aceite + 150 cajas</p>
+            <div class="pack-price">495€</div>
+          </label>
+          <label class="pack-card" onclick="toggleCard(this,290)">
+            <input type="checkbox" name="catering" value="Máquina Granizados 290€" data-price="290">
+            <h4>Máquina Granizados</h4>
+            <p>Máquina granizados + 1L sirope concentrado + 200 vasos</p>
+            <div class="pack-price">290€</div>
+          </label>
+          <label class="pack-card" onclick="toggleCard(this,240)">
+            <input type="checkbox" name="catering" value="Carrito Bebidas 240€" data-price="240">
+            <h4>Carrito Bebidas</h4>
+            <p>Carrito bebidas + 100 refrescos + hielos</p>
+            <div class="pack-price">240€</div>
+          </label>
+          <label class="pack-card" onclick="toggleCard(this,325)">
+            <input type="checkbox" name="catering" value="Pack Perritos 325€" data-price="325">
+            <h4>Pack Perritos</h4>
+            <p>Máquina perritos + 100 salchichas + pan + ketchup, mostaza, mahonesa</p>
+            <div class="pack-price">325€</div>
+          </label>
+          <label class="pack-card" onclick="toggleCard(this,495)">
+            <input type="checkbox" name="catering" value="Carrito Perritos 495€" data-price="495">
+            <h4>Carrito Perritos</h4>
+            <p>Carrito + máquina + 100 salchichas + pan + salsas + cajas</p>
+            <div class="pack-price">495€</div>
+          </label>
+          <label class="pack-card" onclick="toggleCard(this,290)">
+            <input type="checkbox" name="catering" value="Parrilla Sandwiches 290€" data-price="290">
+            <h4>Parrilla Sandwiches</h4>
+            <p>Parrilla + 5 pack pan Bimbo + jamón y queso + platos + servilletas</p>
+            <div class="pack-price">290€</div>
+          </label>
+        </div>
+
+        <hr class="divider">
+        <p class="subsection-title">Bandejas &amp; Canapés</p>
+        <div class="pack-cards">
+          <label class="pack-card" onclick="toggleCard(this,99)">
+            <input type="checkbox" name="catering" value="Pack Desayuno 100 uds 99€" data-price="99">
+            <h4>Pack Desayuno 100 uds</h4>
+            <p>Croissant, napolitanas choco/crema, pops, mini donuts</p>
+            <div class="pack-price">99€ <small style="font-size:10px;color:var(--muted)">(+30€ transporte)</small></div>
+          </label>
+          <label class="pack-card" onclick="toggleCard(this,195)">
+            <input type="checkbox" name="catering" value="Pack Desayuno 200 uds 195€" data-price="195">
+            <h4>Pack Desayuno 200 uds</h4>
+            <p>Croissant, napolitanas choco/crema, pops, mini donuts</p>
+            <div class="pack-price">195€ <small style="font-size:10px;color:var(--muted)">(+30€ transporte)</small></div>
+          </label>
+          <label class="pack-card" onclick="toggleCard(this,105)">
+            <input type="checkbox" name="catering" value="Bandejas Mix 70 uds 105€" data-price="105">
+            <h4>Bandejas Mix 70 uds</h4>
+            <p>Saladitos gourmet, pulguitas jamón, empanadillas, croissant, pops</p>
+            <div class="pack-price">105€ <small style="font-size:10px;color:var(--muted)">(+30€ transporte)</small></div>
+          </label>
+          <label class="pack-card" onclick="toggleCard(this,210)">
+            <input type="checkbox" name="catering" value="Bandejas Mix 140 uds 210€" data-price="210">
+            <h4>Bandejas Mix 140 uds</h4>
+            <p>Saladitos gourmet, pulguitas jamón, empanadillas, croissant, pops</p>
+            <div class="pack-price">210€ <small style="font-size:10px;color:var(--muted)">(+30€ transporte)</small></div>
+          </label>
+          <label class="pack-card" onclick="toggleCard(this,110)">
+            <input type="checkbox" name="catering" value="Bandejas Saladas 65 uds 110€" data-price="110">
+            <h4>Bandejas Saladas 65 uds</h4>
+            <p>Saladitos gourmet, pulguitas, empanadillas pimientos, croquetas, mini empanadillas</p>
+            <div class="pack-price">110€ <small style="font-size:10px;color:var(--muted)">(+30€ transporte)</small></div>
+          </label>
+          <label class="pack-card" onclick="toggleCard(this,220)">
+            <input type="checkbox" name="catering" value="Bandejas Saladas 130 uds 220€" data-price="220">
+            <h4>Bandejas Saladas 130 uds</h4>
+            <p>Saladitos gourmet, pulguitas, empanadillas pimientos, croquetas</p>
+            <div class="pack-price">220€ <small style="font-size:10px;color:var(--muted)">(+30€ transporte)</small></div>
+          </label>
+          <label class="pack-card" onclick="toggleCard(this,668)">
+            <input type="checkbox" name="catering" value="Canapés Clásicos 448 uds 668€" data-price="668">
+            <h4>Canapés Clásicos 448 uds</h4>
+            <p>Tosta Tumaca, Pintxos Tortilla, Empanada Bonito, Mini Croissants, Tabla Quesos, Lomo con Picos</p>
+            <div class="pack-price">668€ <small style="font-size:10px;color:var(--muted)">(+70€ transporte)</small></div>
+          </label>
+          <label class="pack-card" onclick="toggleCard(this,785)">
+            <input type="checkbox" name="catering" value="Canapés Pro 512 uds 785€" data-price="785">
+            <h4>Canapés Pro 512 uds</h4>
+            <p>Tosta a cuchillo, Tortilla trufa, Empanada Bonito, Salmón, Wrap pollo, Hojaldre foie, Tartaleta</p>
+            <div class="pack-price">785€ <small style="font-size:10px;color:var(--muted)">(+70€ transporte)</small></div>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 6: AUDIOVISUAL -->
+    <div class="form-section">
+      <div class="section-header">
+        <div class="section-number">6</div>
+        <h2>📺 Audiovisual</h2>
+      </div>
+      <div class="section-body">
+        <p class="hint">Alquiler 3 días feria</p>
+        <div class="acc-grid">
+          <label class="acc-item" onclick="toggleAcc(this,35)"><input type="checkbox" name="av" value="Soporte Tablet 35€" data-price="35"><span>Soporte Tablet</span><span class="acc-price">35€</span></label>
+          <label class="acc-item" onclick="toggleAcc(this,90)"><input type="checkbox" name="av" value="Tablet 11 Wi-Fi 128GB 90€" data-price="90"><span>Tablet 11" Wi-Fi 128GB</span><span class="acc-price">90€</span></label>
+          <label class="acc-item" onclick="toggleAcc(this,140)"><input type="checkbox" name="av" value="Apple iPad 11 Wi-Fi 128GB 140€" data-price="140"><span>Apple iPad 11" Wi-Fi 128GB</span><span class="acc-price">140€</span></label>
+          <label class="acc-item" onclick="toggleAcc(this,230)"><input type="checkbox" name="av" value="Apple iPad Air M3 11 230€" data-price="230"><span>Apple iPad Air M3 11"</span><span class="acc-price">230€</span></label>
+          <label class="acc-item" onclick="toggleAcc(this,240)"><input type="checkbox" name="av" value="Proyector XGA 3700 ANSI lm 240€" data-price="240"><span>Proyector XGA 3700 ANSI lm</span><span class="acc-price">240€</span></label>
+          <label class="acc-item" onclick="toggleAcc(this,190)"><input type="checkbox" name="av" value="Altavoz Behringer B115MP3 15 190€" data-price="190"><span>Altavoz Behringer 15"</span><span class="acc-price">190€</span></label>
+          <label class="acc-item" onclick="toggleAcc(this,190)"><input type="checkbox" name="av" value="Portátil HP Win11 i5 190€" data-price="190"><span>Portátil HP Win11 i5</span><span class="acc-price">190€</span></label>
+          <label class="acc-item" onclick="toggleAcc(this,75)"><input type="checkbox" name="av" value="Soporte TV Suelo 75€" data-price="75"><span>Soporte TV Suelo</span><span class="acc-price">75€</span></label>
+          <label class="acc-item" onclick="toggleAcc(this,0)"><input type="checkbox" name="av" value="Pantalla Táctil 55/60/75 (Presupuesto)" data-price="0"><span>Pantalla Táctil 55/60/75"</span><span class="acc-price">Presupuesto</span></label>
+          <label class="acc-item" onclick="toggleAcc(this,140)"><input type="checkbox" name="av" value="Smart TV 32 Full HD 140€" data-price="140"><span>Smart TV 32" Full HD</span><span class="acc-price">140€</span></label>
+          <label class="acc-item" onclick="toggleAcc(this,220)"><input type="checkbox" name="av" value="Smart TV 40 Full HD 220€" data-price="220"><span>Smart TV 40" Full HD</span><span class="acc-price">220€</span></label>
+          <label class="acc-item" onclick="toggleAcc(this,320)"><input type="checkbox" name="av" value="Smart TV 50 4K UHD 320€" data-price="320"><span>Smart TV 50" 4K UHD</span><span class="acc-price">320€</span></label>
+          <label class="acc-item" onclick="toggleAcc(this,380)"><input type="checkbox" name="av" value="Smart TV 55 4K UHD 380€" data-price="380"><span>Smart TV 55" 4K UHD</span><span class="acc-price">380€</span></label>
+          <label class="acc-item" onclick="toggleAcc(this,530)"><input type="checkbox" name="av" value="Smart TV 65 QLED 4K 530€" data-price="530"><span>Smart TV 65" QLED 4K</span><span class="acc-price">530€</span></label>
+          <label class="acc-item" onclick="toggleAcc(this,780)"><input type="checkbox" name="av" value="Smart TV 75 QLED 4K 780€" data-price="780"><span>Smart TV 75" QLED 4K</span><span class="acc-price">780€</span></label>
+          <label class="acc-item" onclick="toggleAcc(this,1490)"><input type="checkbox" name="av" value="Smart TV 85 4K UHD 1490€" data-price="1490"><span>Smart TV 85" 4K UHD</span><span class="acc-price">1.490€</span></label>
+          <label class="acc-item" onclick="toggleAcc(this,1830)"><input type="checkbox" name="av" value="Smart TV 98 4K UHD 1830€" data-price="1830"><span>Smart TV 98" 4K UHD</span><span class="acc-price">1.830€</span></label>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 7: ACCESORIOS -->
+    <div class="form-section">
+      <div class="section-header">
+        <div class="section-number">7</div>
+        <h2>🛠️ Accesorios</h2>
+      </div>
+      <div class="section-body">
+        <p class="subsection-title">Accesorios Food &amp; Drink</p>
+        <div class="acc-grid">
+          <label class="acc-item" onclick="toggleAcc(this,160)"><input type="checkbox" name="acc" value="Nevera 237L 160€" data-price="160"><span>Nevera 237L</span><span class="acc-price">160€</span></label>
+          <label class="acc-item" onclick="toggleAcc(this,123)"><input type="checkbox" name="acc" value="Nevera 118L 123€" data-price="123"><span>Nevera 118L</span><span class="acc-price">123€</span></label>
+          <label class="acc-item" onclick="toggleAcc(this,160)"><input type="checkbox" name="acc" value="Cava de Vino 160€" data-price="160"><span>Cava de Vino</span><span class="acc-price">160€</span></label>
+          <label class="acc-item" onclick="toggleAcc(this,175)"><input type="checkbox" name="acc" value="Arcón Botellero 200L 175€" data-price="175"><span>Arcón Botellero 200L</span><span class="acc-price">175€</span></label>
+          <label class="acc-item" onclick="toggleAcc(this,130)"><input type="checkbox" name="acc" value="Arcón Congelador 100L 130€" data-price="130"><span>Arcón Congelador 100L</span><span class="acc-price">130€</span></label>
+          <label class="acc-item" onclick="toggleAcc(this,170)"><input type="checkbox" name="acc" value="Arcón Congelador 200L 170€" data-price="170"><span>Arcón Congelador 200L</span><span class="acc-price">170€</span></label>
+          <label class="acc-item" onclick="toggleAcc(this,140)"><input type="checkbox" name="acc" value="Nevera Vintage Carrito 140€" data-price="140"><span>Nevera Vintage Carrito</span><span class="acc-price">140€</span></label>
+          <label class="acc-item" onclick="toggleAcc(this,65)"><input type="checkbox" name="acc" value="Fuente Chocolate 65€" data-price="65"><span>Fuente Chocolate</span><span class="acc-price">65€</span></label>
+          <label class="acc-item" onclick="toggleAcc(this,170)"><input type="checkbox" name="acc" value="Horno Pizza (solo equipo) 170€" data-price="170"><span>Horno Pizza (solo equipo)</span><span class="acc-price">170€</span></label>
+          <label class="acc-item" onclick="toggleAcc(this,120)"><input type="checkbox" name="acc" value="Parrilla Sandwichera 120€" data-price="120"><span>Parrilla Sandwichera</span><span class="acc-price">120€</span></label>
+          <label class="acc-item" onclick="toggleAcc(this,50)"><input type="checkbox" name="acc" value="Exprimidor Eléctrico 50€" data-price="50"><span>Exprimidor Eléctrico</span><span class="acc-price">50€</span></label>
+          <label class="acc-item" onclick="toggleAcc(this,90)"><input type="checkbox" name="acc" value="Enfriador 4 Botellas 90€" data-price="90"><span>Enfriador 4 Botellas</span><span class="acc-price">90€</span></label>
+          <label class="acc-item" onclick="toggleAcc(this,80)"><input type="checkbox" name="acc" value="Air Fryer Doble Compartimento 80€" data-price="80"><span>Air Fryer Doble Compartimento</span><span class="acc-price">80€</span></label>
+          <label class="acc-item" onclick="toggleAcc(this,140)"><input type="checkbox" name="acc" value="Cafetera Profesional Nespresso 140€" data-price="140"><span>Cafetera Profesional Nespresso</span><span class="acc-price">140€</span></label>
+          <label class="acc-item" onclick="toggleAcc(this,85)"><input type="checkbox" name="acc" value="Calentador Agua 1,5L 85€" data-price="85"><span>Calentador Agua 1,5L</span><span class="acc-price">85€</span></label>
+          <label class="acc-item" onclick="toggleAcc(this,320)"><input type="checkbox" name="acc" value="Carrito Palomitas Profesional 320€" data-price="320"><span>Carrito Palomitas Profesional</span><span class="acc-price">320€</span></label>
+          <label class="acc-item" onclick="toggleAcc(this,320)"><input type="checkbox" name="acc" value="Carrito Perritos Calientes 320€" data-price="320"><span>Carrito Perritos Calientes</span><span class="acc-price">320€</span></label>
+          <label class="acc-item" onclick="toggleAcc(this,240)"><input type="checkbox" name="acc" value="Máquina Granizados (solo equipo) 240€" data-price="240"><span>Máquina Granizados (solo equipo)</span><span class="acc-price">240€</span></label>
+        </div>
+
+        <hr class="divider">
+        <p class="subsection-title">Accesorios para el Evento</p>
+        <div class="acc-grid">
+          <label class="acc-item" onclick="toggleAcc(this,90)"><input type="checkbox" name="acc_evento" value="Mesa Metal con Mantel 90€" data-price="90"><span>Mesa Metal con Mantel</span><span class="acc-price">90€</span></label>
+          <label class="acc-item" onclick="toggleAcc(this,200)"><input type="checkbox" name="acc_evento" value="Impresora Láser B/N 200€" data-price="200"><span>Impresora Láser B/N</span><span class="acc-price">200€</span></label>
+          <label class="acc-item" onclick="toggleAcc(this,250)"><input type="checkbox" name="acc_evento" value="Impresora Láser Color 250€" data-price="250"><span>Impresora Láser Color</span><span class="acc-price">250€</span></label>
+          <label class="acc-item" onclick="toggleAcc(this,50)"><input type="checkbox" name="acc_evento" value="Ruleta con Trípode 50€" data-price="50"><span>Ruleta con Trípode</span><span class="acc-price">50€</span></label>
+          <label class="acc-item" onclick="toggleAcc(this,50)"><input type="checkbox" name="acc_evento" value="Pizarra Blanca Reversible 50€" data-price="50"><span>Pizarra Blanca Reversible</span><span class="acc-price">50€</span></label>
+          <label class="acc-item" onclick="toggleAcc(this,90)"><input type="checkbox" name="acc_evento" value="Tablet Android 10.1 Wifi 90€" data-price="90"><span>Tablet Android 10,1" Wifi</span><span class="acc-price">90€</span></label>
+          <label class="acc-item" onclick="toggleAcc(this,100)"><input type="checkbox" name="acc_evento" value="Microondas 900W 100€" data-price="100"><span>Microondas 900W</span><span class="acc-price">100€</span></label>
+          <label class="acc-item" onclick="toggleAcc(this,40)"><input type="checkbox" name="acc_evento" value="Pie Champanera 40€" data-price="40"><span>Pie Champanera</span><span class="acc-price">40€</span></label>
+          <label class="acc-item" onclick="toggleAcc(this,40)"><input type="checkbox" name="acc_evento" value="Pantalla Proyección 2x2 40€" data-price="40"><span>Pantalla Proyección 2x2</span><span class="acc-price">40€</span></label>
+          <label class="acc-item" onclick="toggleAcc(this,220)"><input type="checkbox" name="acc_evento" value="Loncheadora Profesional 220€" data-price="220"><span>Loncheadora Profesional</span><span class="acc-price">220€</span></label>
+          <label class="acc-item" onclick="toggleAcc(this,160)"><input type="checkbox" name="acc_evento" value="Placa de Inducción Doble 160€" data-price="160"><span>Placa de Inducción Doble</span><span class="acc-price">160€</span></label>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 8: NOTAS + SUBMIT -->
+    <div class="form-section">
+      <div class="section-header">
+        <div class="section-number">8</div>
+        <h2>Notas adicionales</h2>
+      </div>
+      <div class="section-body">
+        <div class="field" style="margin-bottom:16px">
+          <label>¿Algo que debamos saber? Requisitos especiales, fechas de montaje, etc.</label>
+          <textarea name="notas" placeholder="Escribe aquí cualquier detalle adicional..."></textarea>
+        </div>
+
+        <div class="two-col">
+          <div class="field">
+            <label>¿Cómo nos conociste?</label>
+            <select name="conociste">
+              <option value="">Selecciona...</option>
+              <option>Email / Newsletter</option>
+              <option>LinkedIn</option>
+              <option>Recomendación</option>
+              <option>Feria anterior</option>
+              <option>Google</option>
+              <option>Redes Sociales</option>
+              <option>Otro</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>¿Ya has trabajado con Gribeer?</label>
+            <div class="radio-group-inline">
+              <label class="radio-option" style="font-size:13px">
+                <input type="radio" name="cliente" value="Sí, ya soy cliente">
+                <span>Sí, ya soy cliente</span>
+              </label>
+              <label class="radio-option" style="font-size:13px">
+                <input type="radio" name="cliente" value="No, primera vez">
+                <span>No, primera vez</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <label class="privacy-check">
+          <input type="checkbox" name="privacidad" id="privacidad" required>
+          <span>He leído y acepto la <a href="https://gribeer.com/en/politica-de-privacidad/" target="_blank">Política de Privacidad</a> de Gribeer y consiento el uso de mis datos para recibir esta propuesta. *</span>
+        </label>
+
+        <!-- BUDGET -->
+        <div class="budget-box">
+          <div>
+            <div class="label">Presupuesto estimado</div>
+            <div class="budget-note">* Precios de referencia. Sujeto a confirmación.</div>
+          </div>
+          <div>
+            <div class="budget-amount" id="budgetAmount">0 €</div>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-submit">Solicitar Presupuesto →</button>
+        <p class="submit-note">* Campos obligatorios. Recibirás tu propuesta en menos de 24 h.</p>
+      </div>
+    </div>
+
+    <!-- SUCCESS -->
+    <div class="form-section">
+      <div class="success-screen" id="successScreen">
+        <div class="check">✓</div>
+        <h3>¡Solicitud recibida!</h3>
+        <p>Gracias por confiar en Gribeer.<br>Nuestro equipo revisará tu selección y te enviará una propuesta detallada en menos de <strong>24 horas</strong>.<br><br>Mientras tanto, visita <a href="https://gribeer.com/en/" target="_blank">gribeer.com</a></p>
+        <div class="success-links">
+          <a href="tel:+34919930393">📞 91 993 03 93</a>
+          <a href="mailto:info@gribeer.com">✉️ info@gribeer.com</a>
+          <a href="https://gribeer.com" target="_blank">🌐 www.gribeer.com</a>
+          <a href="https://www.instagram.com/gribeer_" target="_blank">📷 @gribeer_</a>
+          <a href="https://www.linkedin.com/company/gribeer" target="_blank">💼 Gribeer Eventos</a>
+        </div>
+      </div>
+    </div>
+
+  </form>
+</div>
+
+<footer>
+  © 2026 <a href="https://gribeer.com/en/" target="_blank">Gribeer</a> – Servicios para Ferias, Eventos y Congresos
+</footer>
+
+<script>
+  let budget = 0;
+
+  function toggleRadio(el, groupId, price) {
+    const group = el.closest('.radio-group') || el.closest('.radio-group-inline');
+    if (!group) return;
+    group.querySelectorAll('.radio-option').forEach(o => o.classList.remove('selected'));
+    el.classList.add('selected');
+    el.querySelector('input').checked = true;
+    updateBudget();
+  }
+
+  function toggleCheck(el, price) {
+    el.classList.toggle('selected');
+    updateBudget();
+  }
+
+  function toggleCard(el, price) {
+    el.classList.toggle('selected');
+    el.querySelector('input').checked = el.classList.contains('selected');
+    updateBudget();
+  }
+
+  function toggleAcc(el, price) {
+    el.classList.toggle('selected');
+    el.querySelector('input').checked = el.classList.contains('selected');
+    updateBudget();
+  }
+
+  function pillSync(input) {
+    const pill = input.closest('.pill');
+    if (!pill) return;
+    pill.closest('.pills').querySelectorAll('.pill').forEach(p => p.classList.remove('selected'));
+    pill.classList.add('selected');
+  }
+
+  function updateBudget() {
+    let total = 0;
+
+    // Barriles
+    const barrilSel = document.querySelector('input[name="barriles"]:checked');
+    if (barrilSel) total += parseInt(barrilSel.dataset.price || 0);
+
+    // Barriles extra
+    const extraSel = document.querySelector('input[name="barriles_extra"]:checked');
+    if (extraSel) total += parseInt(extraSel.dataset.price || 0);
+
+    // Vasos
+    const vasosSel = document.querySelector('input[name="vasos"]:checked');
+    if (vasosSel) total += parseInt(vasosSel.dataset.price || 0);
+
+    // All checkboxes with prices
+    const checkNames = ['bebidas','mobiliario','catering','av','acc','acc_evento'];
+    checkNames.forEach(n => {
+      document.querySelectorAll(`input[name="${n}"]:checked`).forEach(inp => {
+        total += parseInt(inp.dataset.price || 0);
+      });
+    });
+
+    document.getElementById('budgetAmount').textContent = total.toLocaleString('es-ES') + ' €';
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const privacidad = document.getElementById('privacidad').checked;
+    if (!privacidad) {
+      alert('Por favor, acepta la Política de Privacidad para continuar.');
+      return;
+    }
+    document.getElementById('mainForm').style.display = 'none';
+    const ss = document.getElementById('successScreen');
+    ss.style.display = 'block';
+    ss.closest('.form-section').scrollIntoView({ behavior: 'smooth' });
+  }
+
+  // Init pill sync
+  document.querySelectorAll('.pill input').forEach(inp => {
+    inp.addEventListener('change', () => {
+      pillSync(inp);
+      updateBudget();
+    });
+  });
+</script>
+</body>
+</html>
