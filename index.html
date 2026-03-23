@@ -383,163 +383,32 @@
     .lang-bar { justify-content: center; }
   }
 
-  /* ─── IFEMA SI/NO ─── */
-  .ifema-row {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    flex-wrap: wrap;
-  }
-  .ifema-opt {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    cursor: pointer;
-    padding: 8px 18px;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    background: var(--dark3);
-    color: var(--text);
-    font-size: 14px;
-    transition: border-color 0.2s, background 0.2s;
-    user-select: none;
-  }
-  .ifema-opt input[type="radio"] { display: none; }
-  .ifema-opt:has(input:checked) {
-    border-color: var(--gold);
-    background: rgba(201,168,76,0.12);
-    color: var(--gold);
-    font-weight: 600;
-  }
-  #i_ifema {
-    background: var(--dark3);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 8px 12px;
-    color: var(--text);
-    font-size: 14px;
-    min-width: 180px;
-  }
-  #i_ifema:focus { outline: none; border-color: var(--gold); }
-
-
-  .badge-info {
-    background: var(--dark3);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 4px 12px;
-    font-size: 12px;
-    color: var(--muted);
-  }
-
-
-  /* ─── PANTALLA ÉXITO ─── */
-  .success-screen {
-    max-width: 560px;
-    margin: 60px auto;
-    padding: 48px 32px;
-    text-align: center;
-    animation: fadeInUp 0.5s ease;
-  }
-  @keyframes fadeInUp {
-    from { opacity:0; transform:translateY(30px); }
-    to   { opacity:1; transform:translateY(0); }
-  }
-  .success-icon {
-    margin-bottom: 28px;
-  }
-  .success-circle {
-    width: 80px;
-    height: 80px;
-    margin: 0 auto;
-    border-radius: 50%;
-    background: rgba(201,168,76,0.12);
-    border: 2px solid var(--gold);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .success-checkmark {
-    width: 44px;
-    height: 44px;
-  }
-  .checkmark-circle {
-    stroke: var(--gold);
-    stroke-width: 2;
-    stroke-dasharray: 157;
-    stroke-dashoffset: 157;
-    animation: drawCircle 0.6s ease forwards 0.2s;
-  }
-  .checkmark-check {
-    stroke: var(--gold);
-    stroke-width: 3;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    stroke-dasharray: 48;
-    stroke-dashoffset: 48;
-    animation: drawCheck 0.4s ease forwards 0.7s;
-  }
-  @keyframes drawCircle {
-    to { stroke-dashoffset: 0; }
-  }
-  @keyframes drawCheck {
-    to { stroke-dashoffset: 0; }
-  }
-  .success-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 32px;
-    color: var(--white);
-    margin-bottom: 10px;
-  }
-  .success-subtitle {
-    font-size: 16px;
-    color: var(--muted);
-    margin-bottom: 28px;
-  }
-  .success-subtitle strong {
-    color: var(--gold);
-  }
-  .success-card {
-    background: var(--dark3);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 20px 24px;
-    margin-bottom: 28px;
-    font-size: 14px;
-    color: var(--text);
-    line-height: 1.7;
-  }
-  .success-card strong {
-    color: var(--gold);
-  }
-  .success-contact-label {
-    font-size: 12px;
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 14px;
-  }
-  .success-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-  }
-  .success-link {
-    display: inline-block;
-    padding: 10px 18px;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    background: var(--dark3);
-    color: var(--text);
-    text-decoration: none;
-    font-size: 13px;
-    transition: border-color 0.2s, color 0.2s;
-  }
-  .success-link:hover {
-    border-color: var(--gold);
-    color: var(--gold);
-  }
+  .ifema-row { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+  .ifema-opt { display:flex; align-items:center; gap:6px; cursor:pointer; padding:8px 18px; border:1px solid var(--border); border-radius:8px; background:var(--dark3); color:var(--text); font-size:14px; transition:border-color 0.2s,background 0.2s; user-select:none; }
+  .ifema-opt input[type="radio"], .ifema-opt input[type="checkbox"] { display:none; }
+  .ifema-opt:has(input:checked) { border-color:var(--gold); background:rgba(201,168,76,0.12); color:var(--gold); font-weight:600; }
+  #i_ifema { background:var(--dark3); border:1px solid var(--border); border-radius:8px; padding:8px 12px; color:var(--text); font-size:14px; min-width:180px; }
+  #i_ifema:focus { outline:none; border-color:var(--gold); }
+  .badge-info { background:var(--dark3); border:1px solid var(--border); border-radius:20px; padding:4px 12px; font-size:12px; color:var(--muted); }
+  /* Pantalla éxito */
+  .success-screen { max-width:560px; margin:60px auto; padding:48px 32px; text-align:center; animation:fadeInUp 0.5s ease; }
+  @keyframes fadeInUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+  .success-icon { margin-bottom:28px; }
+  .success-circle { width:80px; height:80px; margin:0 auto; border-radius:50%; background:rgba(201,168,76,0.12); border:2px solid var(--gold); display:flex; align-items:center; justify-content:center; }
+  .success-checkmark { width:44px; height:44px; }
+  .checkmark-circle { stroke:var(--gold); stroke-width:2; stroke-dasharray:157; stroke-dashoffset:157; animation:drawCircle 0.6s ease forwards 0.2s; }
+  .checkmark-check { stroke:var(--gold); stroke-width:3; stroke-linecap:round; stroke-linejoin:round; stroke-dasharray:48; stroke-dashoffset:48; animation:drawCheck 0.4s ease forwards 0.7s; }
+  @keyframes drawCircle { to{stroke-dashoffset:0} }
+  @keyframes drawCheck { to{stroke-dashoffset:0} }
+  .success-title { font-family:"Playfair Display",serif; font-size:32px; color:var(--white); margin-bottom:10px; }
+  .success-subtitle { font-size:16px; color:var(--muted); margin-bottom:28px; }
+  .success-subtitle strong { color:var(--gold); }
+  .success-card { background:var(--dark3); border:1px solid var(--border); border-radius:12px; padding:20px 24px; margin-bottom:28px; font-size:14px; color:var(--text); line-height:1.7; }
+  .success-card strong { color:var(--gold); }
+  .success-contact-label { font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:14px; }
+  .success-links { display:flex; flex-wrap:wrap; gap:10px; justify-content:center; }
+  .success-link { display:inline-block; padding:10px 18px; border:1px solid var(--border); border-radius:8px; background:var(--dark3); color:var(--text); text-decoration:none; font-size:13px; transition:border-color 0.2s,color 0.2s; }
+  .success-link:hover { border-color:var(--gold); color:var(--gold); }
 
 </style>
 </head>
@@ -607,14 +476,7 @@
           <div class="field"><label id="l_email">Email *</label><input type="email" name="email" required placeholder="tu@email.com"></div>
           <div class="field"><label id="l_empresa">Empresa *</label><input type="text" name="empresa" required id="i_empresa" placeholder="Nombre de empresa"></div>
           <div class="field"><label id="l_tel">Teléfono / WhatsApp *</label><input type="tel" name="telefono" required placeholder="+34 000 000 000"></div>
-          <div class="field field--ifema">
-            <label id="l_ifema">¿Es en IFEMA?</label>
-            <div class="ifema-row">
-              <label class="ifema-opt"><input type="radio" name="ifema_yn" value="si" id="ifema_si" onchange="toggleIfema()"> <span id="l_ifema_si">Sí</span></label>
-              <label class="ifema-opt"><input type="radio" name="ifema_yn" value="no" id="ifema_no" onchange="toggleIfema()" checked> <span id="l_ifema_no">No</span></label>
-              <input type="text" name="ifema" id="i_ifema" placeholder="Nombre de la Feria" style="display:none; flex:1; margin-left:12px;">
-            </div>
-          </div>
+          <div class="field"><label id="l_ifema">¿Es en IFEMA?</label><div class="ifema-row"><label class="ifema-opt"><input type="radio" name="ifema_yn" value="si" id="ifema_si" onchange="toggleIfema()"> <span>Sí</span></label><label class="ifema-opt"><input type="radio" name="ifema_yn" value="no" id="ifema_no" onchange="toggleIfema()" checked> <span>No</span></label><input type="text" name="ifema" id="i_ifema" placeholder="Nombre de la Feria" style="display:none; flex:1; margin-left:12px;"></div></div>
           <div class="field"><label id="l_fechas">Fechas del evento *</label><input type="text" name="fechas" required id="i_fechas" placeholder="dd/mm/aaaa – dd/mm/aaaa"></div>
           <div class="field"><label id="l_evento">Ubicación del evento</label><input type="text" name="evento" id="i_evento" placeholder="Lugar del evento"></div>
           <div class="field"><label id="l_cargo">Cargo</label><input type="text" name="cargo" id="i_cargo" placeholder="Tu cargo"></div>
@@ -629,11 +491,11 @@
         <p class="hint" id="s2_hint">Grifo <strong>GRATIS</strong> a partir de 2 barriles (Opción 3). Las Opciones 1 y 2 tienen suplemento por bandeja adicional.</p>
         <p class="subsection-title" id="s2_tipo">Tipo de instalación</p>
         <div class="radio-group">
-          <label class="radio-option"><input type="radio" name="grifo" value="sin_grifo" data-price="0" onchange="updateBudget()"><span class="option-label" id="g_sin">Sin grifo</span></label>
-          <label class="radio-option"><input type="radio" name="grifo" value="op1" data-price="65" onchange="updateBudget()"><span class="option-label" id="g_op1">Opción 1 – Bandeja pinza</span><span class="option-price">+65€</span></label>
-          <label class="radio-option"><input type="radio" name="grifo" value="op2" data-price="130" onchange="updateBudget()"><span class="option-label" id="g_op2">Opción 2 – Bandeja encastrada <small style="color:var(--muted)">(solo FERIAS con montaje stand)</small></span><span class="option-price">+130€</span></label>
-          <label class="radio-option"><input type="radio" name="grifo" value="op3" data-price="0" onchange="updateBudget()"><span class="option-label" id="g_op3">Opción 3 – Grifo estándar (incluido)</span></label>
-          <label class="radio-option"><input type="radio" name="grifo" value="v100" data-price="0" onchange="updateBudget()"><span class="option-label" id="g_v100">Grifo V-100 Portátil Grande</span><span class="option-price" id="g_v100p">Presupuesto</span></label>
+          <label class="radio-option"><input type="radio" name="grifo" value="sin_grifo"><span class="option-label" id="g_sin">Sin grifo</span></label>
+          <label class="radio-option"><input type="radio" name="grifo" value="op1"><span class="option-label" id="g_op1">Opción 1 – Bandeja pinza</span><span class="option-price">+65€</span></label>
+          <label class="radio-option"><input type="radio" name="grifo" value="op2"><span class="option-label" id="g_op2">Opción 2 – Bandeja encastrada <small style="color:var(--muted)">(solo FERIAS con montaje stand)</small></span><span class="option-price">+130€</span></label>
+          <label class="radio-option"><input type="radio" name="grifo" value="op3"><span class="option-label" id="g_op3">Opción 3 – Grifo estándar (incluido)</span></label>
+          <label class="radio-option"><input type="radio" name="grifo" value="v100"><span class="option-label" id="g_v100">Grifo V-100 Portátil Grande</span><span class="option-price" id="g_v100p">Presupuesto</span></label>
         </div>
         <hr class="divider">
         <p class="subsection-title" id="s2_barriles_t">Pack de barriles</p>
@@ -670,8 +532,8 @@
         <hr class="divider">
         <p class="subsection-title" id="s2_extras_t">Extras cerveza</p>
         <div class="check-group">
-          <label class="check-option check-option--impresora">
-            <input type="checkbox" name="extras" value="impresora" id="chk_impresora" onchange="toggleImpresora()">
+          <label class="check-option">
+            <input type="checkbox" name="extras" value="impresora" id="chk_impresora" onchange="toggleImpresora(); updateBudget();">
             <span class="option-label" id="ex_logo">🖨️ Impresora de Logo Comestible<br>
             <small style="color:var(--muted); font-weight:300;">Imprime tu logo sobre cerveza, café, bollería o cualquier superficie. Tinta vegana elaborada con colorantes alimentarios seguros, cumpliendo todos los estándares de seguridad e higiene alimentaria. Máx. 250 impresiones/día.</small></span>
           </label>
@@ -694,17 +556,13 @@
       <div class="section-header"><div class="section-number">3</div><h2 id="s3_h">🥤 Packs de Bebidas</h2></div>
       <div class="section-body">
         <div class="pack-cards">
-          <label class="pack-card"><input type="checkbox" name="bebidas" value="beb96" data-price="240" id="chk_beb96" onchange="toggleNevera96()"><h4 id="beb96t">Pack 96 Bebidas</h4><p id="beb96d">Nevera acristalada 118L + 96 bebidas variadas <small>(Nevera 237L +35€)</small></p><div class="pack-price">240€</div></label>
+          <label class="pack-card"><input type="checkbox" name="bebidas" value="beb96" data-price="240" id="chk_beb96" onchange="toggleNevera96(); updateBudget();"><h4 id="beb96t">Pack 96 Bebidas</h4><p id="beb96d">Nevera acristalada 118L + 96 bebidas variadas <small>(Nevera 237L +35€)</small></p><div class="pack-price">240€</div></label>
           <div id="nevera96_opt" style="display:none; margin: -8px 0 12px 12px;">
-            <label class="ifema-opt" style="font-size:13px;">
-              <input type="checkbox" name="nevera96_grande" value="si" id="chk_nevera96"> <span>Añadir Nevera 237L · +35€</span>
-            </label>
+            <label class="ifema-opt" style="font-size:13px;"><input type="checkbox" name="nevera96_grande" value="si" id="chk_nevera96" onchange="updateBudget()"> <span>Añadir Nevera 237L · +35€</span></label>
           </div>
-          <label class="pack-card"><input type="checkbox" name="bebidas" value="beb144" data-price="297" id="chk_beb144" onchange="toggleNevera144()"><h4 id="beb144t">Pack 144 Bebidas</h4><p id="beb144d">Nevera acristalada 118L + 144 bebidas variadas <small>(Nevera 237L +35€)</small></p><div class="pack-price">297€</div></label>
+          <label class="pack-card"><input type="checkbox" name="bebidas" value="beb144" data-price="297" id="chk_beb144" onchange="toggleNevera144(); updateBudget();"><h4 id="beb144t">Pack 144 Bebidas</h4><p id="beb144d">Nevera acristalada 118L + 144 bebidas variadas <small>(Nevera 237L +35€)</small></p><div class="pack-price">297€</div></label>
           <div id="nevera144_opt" style="display:none; margin: -8px 0 12px 12px;">
-            <label class="ifema-opt" style="font-size:13px;">
-              <input type="checkbox" name="nevera144_grande" value="si" id="chk_nevera144"> <span>Añadir Nevera 237L · +35€</span>
-            </label>
+            <label class="ifema-opt" style="font-size:13px;"><input type="checkbox" name="nevera144_grande" value="si" id="chk_nevera144" onchange="updateBudget()"> <span>Añadir Nevera 237L · +35€</span></label>
           </div>
           <label class="pack-card"><input type="checkbox" name="bebidas" value="cafe100" data-price="155"><h4 id="cafe100t">Pack 100 Café L'OR</h4><p id="cafe100d">Cafetera L'OR + 100 cápsulas + vasos, cucharillas, azucarillos y leche</p><div class="pack-price">155€</div></label>
           <label class="pack-card"><input type="checkbox" name="bebidas" value="cafe200" data-price="263"><h4 id="cafe200t">Pack 200 Café L'OR</h4><p id="cafe200d">Cafetera L'OR + 200 cápsulas + vasos, cucharillas, azucarillos y leche</p><div class="pack-price">263€</div></label>
@@ -715,19 +573,18 @@
           <label class="pack-card"><input type="checkbox" name="bebidas" value="agua" data-price="130"><h4 id="aguat">Fuente Agua Fría y Caliente</h4><p id="aguad">3 botellas 18,9L + 300 vasos</p><div class="pack-price">130€</div></label>
           <label class="pack-card"><input type="checkbox" name="bebidas" value="coc" data-price="0"><h4 id="coct">Servicios Coctelería</h4><p id="cocd">Servicio personalizado con camareros</p><div class="pack-price" id="coc_p">Pedir presupuesto</div></label>
         </div>
-
         <div style="margin-top:16px;">
-          <label class="check-option check-option--impresora">
-            <input type="checkbox" name="bebidas_impresora" value="si" id="chk_bebidas_impresora" onchange="toggleImpresoraBebidas()">
+          <label class="check-option">
+            <input type="checkbox" name="bebidas_impresora" value="si" id="chk_bebidas_impresora" onchange="toggleImpresoraBebidas(); updateBudget();">
             <span class="option-label">🖨️ Impresora de Logo Comestible<br>
             <small style="color:var(--muted); font-weight:300;">Imprime tu logo sobre cerveza, café, bollería o cualquier superficie. Tinta vegana elaborada con colorantes alimentarios seguros, cumpliendo todos los estándares de seguridad e higiene alimentaria. Máx. 250 impresiones/día.</small></span>
           </label>
           <div id="bebidas_impresora_dias" style="display:none; margin-left:28px; margin-top:8px;">
             <div style="display:flex; flex-wrap:wrap; gap:8px;">
-              <label class="ifema-opt"><input type="radio" name="bebidas_impresora_dias" value="1dia"> <span>1 día · 300€</span></label>
-              <label class="ifema-opt"><input type="radio" name="bebidas_impresora_dias" value="2dias"> <span>2 días · 500€</span></label>
-              <label class="ifema-opt"><input type="radio" name="bebidas_impresora_dias" value="3dias"> <span>3 días · 675€</span></label>
-              <label class="ifema-opt"><input type="radio" name="bebidas_impresora_dias" value="4dias"> <span>4 días · 800€</span></label>
+              <label class="ifema-opt"><input type="radio" name="bebidas_impresora_dias" value="1dia" onchange="updateBudget()"> <span>1 día · 300€</span></label>
+              <label class="ifema-opt"><input type="radio" name="bebidas_impresora_dias" value="2dias" onchange="updateBudget()"> <span>2 días · 500€</span></label>
+              <label class="ifema-opt"><input type="radio" name="bebidas_impresora_dias" value="3dias" onchange="updateBudget()"> <span>3 días · 675€</span></label>
+              <label class="ifema-opt"><input type="radio" name="bebidas_impresora_dias" value="4dias" onchange="updateBudget()"> <span>4 días · 800€</span></label>
             </div>
           </div>
         </div>
@@ -735,80 +592,52 @@
     </div>
 
 
-    <!-- 4. BARISTA -->
+    <!-- 4B. BARISTA -->
     <div class="form-section">
-      <div class="section-header"><div class="section-number">4</div><h2 id="s_barista_h">☕ Espacio Barista</h2></div>
+      <div class="section-header"><div class="section-number">4</div><h2>☕ Espacio Barista</h2></div>
       <div class="section-body">
-        <p class="hint" id="s_barista_hint">Equipamiento completo incluido: máquina espresso semiautomática 1–2 grupos, molinillo profesional y vaporizador de leche. Accesorios incluidos: jarras, tazas, vasos, salsas y kit de limpieza. <strong>Precio por presupuesto</strong> según días y nº de cafés.</p>
-
+        <p class="hint">Equipamiento completo incluido: máquina espresso semiautomática 1–2 grupos, molinillo profesional y vaporizador de leche. Accesorios incluidos: jarras, tazas, vasos, salsas y kit de limpieza. <strong>Precio por presupuesto</strong> según días y nº de cafés.</p>
         <label class="check-option" style="margin-bottom:12px;">
           <input type="checkbox" name="barista" value="si" id="chk_barista" onchange="toggleBarista()">
-          <span class="option-label" id="l_barista_chk">Quiero incluir Espacio Barista</span>
+          <span class="option-label">Quiero incluir Espacio Barista</span>
         </label>
-
         <div id="barista_opciones" style="display:none; margin-top:12px;">
-
-          <!-- Cafés disponibles -->
-          <p class="subsection-title" style="margin-bottom:8px;" id="l_barista_cafes_t">Cafés disponibles</p>
+          <p class="subsection-title" style="margin-bottom:8px;">Cafés disponibles</p>
           <div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:16px;">
-            <span class="badge-info">Espresso solo/doble</span>
-            <span class="badge-info">Americano</span>
-            <span class="badge-info">Cortado</span>
-            <span class="badge-info">Macchiato</span>
-            <span class="badge-info">Cappuccino</span>
-            <span class="badge-info">Latte</span>
-            <span class="badge-info">Flat White</span>
-            <span class="badge-info">Latte art personalizado</span>
+            <span class="badge-info">Espresso solo/doble</span><span class="badge-info">Americano</span><span class="badge-info">Cortado</span><span class="badge-info">Macchiato</span><span class="badge-info">Cappuccino</span><span class="badge-info">Latte</span><span class="badge-info">Flat White</span><span class="badge-info">Latte art personalizado</span>
           </div>
-
-          <!-- Granizados & Frappés -->
           <label class="check-option" style="margin-bottom:8px;">
-            <input type="checkbox" name="barista_granizados" value="si" id="chk_granizados" onchange="toggleGranizados()">
-            <span class="option-label">🧊 Añadir Granizados &amp; Frappés<br>
-            <small style="color:var(--muted); font-weight:300;">Servicio adicional de granizados y frappés. Precio por presupuesto según días y cantidad.</small></span>
+            <input type="checkbox" id="chk_granizados" name="barista_granizados" value="si">
+            <span class="option-label">🧊 Añadir Granizados &amp; Frappés<br><small style="color:var(--muted); font-weight:300;">Servicio adicional de granizados y frappés. Precio por presupuesto según días y cantidad.</small></span>
           </label>
-
-
-          <!-- Días y nº de cafés -->
-          <div class="form-grid" style="margin-top:4px;">
+          <div class="form-grid" style="margin-top:12px;">
             <div class="field">
-              <label id="l_barista_dias">Nº de días *</label>
+              <label>Nº de días</label>
               <select name="barista_dias" id="sel_barista_dias">
-                <option value="" id="l_barista_dias_ph">-- Selecciona --</option>
-                <option value="1">1 día</option>
-                <option value="2">2 días</option>
-                <option value="3">3 días</option>
-                <option value="4">4 días</option>
-                <option value="5+">5 días o más</option>
+                <option value="">-- Selecciona --</option>
+                <option value="1">1 día</option><option value="2">2 días</option><option value="3">3 días</option><option value="4">4 días</option><option value="5+">5 días o más</option>
               </select>
             </div>
             <div class="field">
-              <label id="l_barista_ncafes">Nº estimado de cafés/día *</label>
+              <label>Nº estimado de cafés/día</label>
               <select name="barista_ncafes" id="sel_barista_ncafes">
-                <option value="" id="l_barista_ncafes_ph">-- Selecciona --</option>
-                <option value="1-50">1 – 50</option>
-                <option value="50-100">50 – 100</option>
-                <option value="100-200">100 – 200</option>
-                <option value="200-300">200 – 300</option>
-                <option value="300+">Más de 300</option>
+                <option value="">-- Selecciona --</option>
+                <option value="1-50">1 – 50</option><option value="50-100">50 – 100</option><option value="100-200">100 – 200</option><option value="200-300">200 – 300</option><option value="300+">Más de 300</option>
               </select>
             </div>
           </div>
-
-          <label class="check-option check-option--impresora" style="margin-top:16px;">
-            <input type="checkbox" name="barista_impresora" value="si" id="chk_barista_impresora" onchange="toggleImpresoraBarista()">
-            <span class="option-label">🖨️ Impresora de Logo Comestible<br>
-            <small style="color:var(--muted); font-weight:300;">Imprime tu logo sobre cerveza, café, bollería o cualquier superficie. Tinta vegana elaborada con colorantes alimentarios seguros, cumpliendo todos los estándares de seguridad e higiene alimentaria. Máx. 250 impresiones/día.</small></span>
+          <label class="check-option" style="margin-top:16px;">
+            <input type="checkbox" name="barista_impresora" value="si" id="chk_barista_impresora" onchange="toggleImpresoraBarista(); updateBudget();">
+            <span class="option-label">🖨️ Impresora de Logo Comestible<br><small style="color:var(--muted); font-weight:300;">Imprime tu logo sobre cerveza, café, bollería o cualquier superficie. Tinta vegana elaborada con colorantes alimentarios seguros, cumpliendo todos los estándares de seguridad e higiene alimentaria. Máx. 250 impresiones/día.</small></span>
           </label>
           <div id="barista_impresora_dias" style="display:none; margin-left:28px; margin-top:8px;">
             <div style="display:flex; flex-wrap:wrap; gap:8px;">
-              <label class="ifema-opt"><input type="radio" name="barista_impresora_dias" value="1dia"> <span>1 día · 300€</span></label>
-              <label class="ifema-opt"><input type="radio" name="barista_impresora_dias" value="2dias"> <span>2 días · 500€</span></label>
-              <label class="ifema-opt"><input type="radio" name="barista_impresora_dias" value="3dias"> <span>3 días · 675€</span></label>
-              <label class="ifema-opt"><input type="radio" name="barista_impresora_dias" value="4dias"> <span>4 días · 800€</span></label>
+              <label class="ifema-opt"><input type="radio" name="barista_impresora_dias" value="1dia" onchange="updateBudget()"> <span>1 día · 300€</span></label>
+              <label class="ifema-opt"><input type="radio" name="barista_impresora_dias" value="2dias" onchange="updateBudget()"> <span>2 días · 500€</span></label>
+              <label class="ifema-opt"><input type="radio" name="barista_impresora_dias" value="3dias" onchange="updateBudget()"> <span>3 días · 675€</span></label>
+              <label class="ifema-opt"><input type="radio" name="barista_impresora_dias" value="4dias" onchange="updateBudget()"> <span>4 días · 800€</span></label>
             </div>
           </div>
-
         </div>
       </div>
     </div>
@@ -851,7 +680,7 @@
       </div>
     </div>
 
-    <!-- 6. AV -->
+    <!-- 5. AV -->
     <div class="form-section">
       <div class="section-header"><div class="section-number">6</div><h2 id="s6_h">📺 Audiovisual</h2></div>
       <div class="section-body">
@@ -949,7 +778,7 @@
       </div>
     </div>
 
-    <!-- 10. NOTAS -->
+    <!-- 9. NOTAS -->
     <div class="form-section">
       <div class="section-header"><div class="section-number">10</div><h2 id="s8_h">Notas adicionales</h2></div>
       <div class="section-body">
@@ -997,9 +826,7 @@
 
     <!-- SUCCESS -->
     <div class="form-section" id="successSection" style="display:none">
-      <div class="success-screen" id="successScreen">
-
-        <!-- Icono animado -->
+      <div class="success-screen">
         <div class="success-icon">
           <div class="success-circle">
             <svg viewBox="0 0 52 52" class="success-checkmark">
@@ -1008,27 +835,18 @@
             </svg>
           </div>
         </div>
-
-        <!-- Título -->
-        <h2 class="success-title" id="suc_title">¡Solicitud enviada!</h2>
-        <p class="success-subtitle" id="suc_subtitle">Nos pondremos en contacto contigo en menos de <strong>24 horas</strong></p>
-
-        <!-- Mensaje -->
+        <h2 class="success-title">¡Solicitud enviada!</h2>
+        <p class="success-subtitle">Nos pondremos en contacto contigo en menos de <strong>24 horas</strong></p>
         <div class="success-card">
-          <p id="suc_body">Gracias por confiar en <strong>Gribeer</strong>. Hemos recibido tu solicitud y nuestro equipo la revisará para prepararte una propuesta personalizada.</p>
+          <p>Gracias por confiar en <strong>Gribeer</strong>. Hemos recibido tu solicitud y nuestro equipo la revisará para prepararte una propuesta personalizada.</p>
         </div>
-
-        <!-- Contacto directo -->
-        <div class="success-contact">
-          <p class="success-contact-label" id="suc_contact_label">¿Necesitas algo urgente?</p>
-          <div class="success-links">
-            <a href="tel:+34919930393" class="success-link">📞 91 993 03 93</a>
-            <a href="/cdn-cgi/l/email-protection#caa3a4aca58aadb8a3a8afafb8e4a9a5a7" class="success-link">✉️ <span class="__cf_email__" data-cfemail="f891969e97b89f8a919a9d9d8ad69b9795">[email&#160;protected]</span></a>
-            <a href="https://gribeer.com" target="_blank" class="success-link">🌐 www.gribeer.com</a>
-            <a href="https://www.instagram.com/gribeer_" target="_blank" class="success-link">📷 @gribeer_</a>
-          </div>
+        <p class="success-contact-label">¿Necesitas algo urgente?</p>
+        <div class="success-links">
+          <a href="tel:+34919930393" class="success-link">📞 91 993 03 93</a>
+          <a href="mailto:info@gribeer.com" class="success-link">✉️ info@gribeer.com</a>
+          <a href="https://gribeer.com" target="_blank" class="success-link">🌐 www.gribeer.com</a>
+          <a href="https://www.instagram.com/gribeer_" target="_blank" class="success-link">📷 @gribeer_</a>
         </div>
-
       </div>
     </div>
 
@@ -1037,7 +855,7 @@
 
 <footer>© 2026 <a href="https://gribeer.com/en/" target="_blank">Gribeer</a> – <span id="footer_txt">Servicios para Ferias, Eventos y Congresos</span></footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 // =====================================================
 // TRANSLATIONS
 // =====================================================
@@ -1050,17 +868,17 @@ const T = {
     dos_desc:'Consulta nuestro catálogo completo de servicios y después selecciona lo que necesitas en los apartados de abajo.',
     dos_open:'↗ Abrir en pantalla completa', dos_dl:'⬇ Descargar PDF',
     s1_h:'Tus datos de contacto',
-    l_ifema:'¿Es en IFEMA?', l_ifema_si:'Sí', l_ifema_no:'No', i_ifema:'Nombre de la Feria',
-    l_apellidos:'Nombre y Apellidos *', i_apellidos:'Tu nombre y apellidos',
+    l_nombre:'Nombre *', i_nombre:'Tu nombre',
+    l_apellidos:'Apellidos *', i_apellidos:'Tus apellidos',
     l_empresa:'Empresa *', i_empresa:'Nombre de empresa',
     l_cargo:'Cargo', i_cargo:'Tu cargo',
     l_email:'Email *', l_tel:'Teléfono / WhatsApp *',
-    l_evento:'Ubicación del evento', i_evento:'Nombre o lugar del evento',
+    l_evento:'Nombre / Ubicación del evento', i_evento:'Nombre o lugar del evento',
     l_fechas:'Fechas del evento *', i_fechas:'dd/mm/aaaa – dd/mm/aaaa',
     s2_h:'🍺 Cerveza &amp; Grifos',
     s2_hint:'Grifo <strong>GRATIS</strong> a partir de 2 barriles (Opción 3). Las Opciones 1 y 2 tienen suplemento por bandeja adicional.',
     s2_tipo:'Tipo de instalación',
-    g_sin:'Sin grifo', g_op1:'Opción 1 – Bandeja pinza', g_op2:'Opción 2 – Bandeja encastrada <small style="color:var(--muted)">(solo FERIAS con montaje stand)</small>',
+    g_sin:'Sin grifo', g_op1:'Opción 1 – Bandeja pinza', g_op2:'Opción 2 – Bandeja encastrada',
     g_op3:'Opción 3 – Grifo estándar (incluido)', g_v100:'Grifo V-100 Portátil Grande', g_v100p:'Presupuesto',
     s2_barriles_t:'Pack de barriles',
     barriles_note_txt:'La Opción 3 (grifo gratis) requiere mínimo 2 barriles.',
@@ -1071,7 +889,7 @@ const T = {
     v_sin:'Sin vasos', v_100:'100 vasos 0,33cl', v_150:'150 vasos 0,33cl', v_200:'200 vasos 0,33cl',
     v_cristal:'Vasos de cristal', v_cristal_p:'Presupuesto',
     s2_extras_t:'Extras cerveza',
-    ex_logo:'🖨️ Impresora de Logo Comestible<br><small style="color:var(--muted); font-weight:300;">Imprime tu logo sobre cerveza, café, bollería o cualquier superficie. Tinta vegana elaborada con colorantes alimentarios seguros, cumpliendo todos los estándares de seguridad e higiene alimentaria. Máx. 250 impresiones/día.</small>',
+    ex_logo:'Logo en grifo <small style="color:var(--muted)">(incluido)</small>',
     ex_cam:'Servicio de camareros', ex_cam_p:'Presupuesto · Mín 4h',
     ex_aza:'Servicio de azafatos/as', ex_aza_p:'Presupuesto · Mín 4h',
     s_trans_h:'🚚 Transporte', trans_lbl:'Solicitar transporte', trans_price:'Desde 60€',
@@ -1151,7 +969,7 @@ const T = {
     budget_note:'* Precios de referencia. Sujeto a confirmación.',
     submit_btn:'Solicitar Presupuesto →',
     submit_note:'* Campos obligatorios. Recibirás tu propuesta en menos de 24 h.',
-    suc_title:'Request sent!',
+    suc_title:'¡Solicitud recibida!',
     suc_body:'Gracias por confiar en Gribeer.<br>Nuestro equipo revisará tu selección y te enviará una propuesta detallada en menos de <strong>24 horas</strong>.<br><br>Mientras tanto, visita <a href="https://gribeer.com/en/" target="_blank">gribeer.com</a>',
     footer_txt:'Servicios para Ferias, Eventos y Congresos',
     cookie_text:'🍪 Usamos cookies propias y de terceros para mejorar tu experiencia y analizar el tráfico. Al continuar navegando aceptas su uso según nuestra <a href="https://gribeer.com/en/politica-de-privacidad/" target="_blank">Política de Privacidad</a>.',
@@ -1166,17 +984,17 @@ const T = {
     dos_desc:'Browse our full service catalogue and then select what you need in the sections below.',
     dos_open:'↗ Open full screen', dos_dl:'⬇ Download PDF',
     s1_h:'Your contact details',
-    l_ifema:'Is it at IFEMA?', l_ifema_si:'Yes', l_ifema_no:'No', i_ifema:'Fair Name',
-    l_apellidos:'Full Name *', i_apellidos:'Your full name',
+    l_nombre:'First Name *', i_nombre:'Your first name',
+    l_apellidos:'Last Name *', i_apellidos:'Your last name',
     l_empresa:'Company *', i_empresa:'Company name',
     l_cargo:'Job Title', i_cargo:'Your job title',
     l_email:'Email *', l_tel:'Phone / WhatsApp *',
-    l_evento:'Event Location', i_evento:'Event name or venue',
+    l_evento:'Event Name / Location', i_evento:'Event name or venue',
     l_fechas:'Event Dates *', i_fechas:'dd/mm/yyyy – dd/mm/yyyy',
     s2_h:'🍺 Beer &amp; Taps',
     s2_hint:'Tap <strong>FREE</strong> from 2 kegs (Option 3). Options 1 &amp; 2 have a surcharge for the extra tray.',
     s2_tipo:'Installation type',
-    g_sin:'No tap', g_op1:'Option 1 – Clip-on tray', g_op2:'Option 2 – Built-in tray <small style="color:var(--muted)">(TRADE FAIRS with stand only)</small>',
+    g_sin:'No tap', g_op1:'Option 1 – Clip-on tray', g_op2:'Option 2 – Built-in tray',
     g_op3:'Option 3 – Standard tap (included)', g_v100:'V-100 Large Portable Tap', g_v100p:'Quote',
     s2_barriles_t:'Keg packs',
     barriles_note_txt:'Option 3 (free tap) requires a minimum of 2 kegs.',
@@ -1187,7 +1005,7 @@ const T = {
     v_sin:'No cups', v_100:'100 cups 0.33cl', v_150:'150 cups 0.33cl', v_200:'200 cups 0.33cl',
     v_cristal:'Glass cups', v_cristal_p:'Quote',
     s2_extras_t:'Beer extras',
-    ex_logo:'🖨️ Edible Logo Printer<br><small style="color:var(--muted); font-weight:300;">Print your logo on beer, coffee, pastries or any surface. Vegan ink made with safe food-grade colorants, meeting all food safety and hygiene standards. Max. 250 prints/day.</small>',
+    ex_logo:'Logo on tap <small style="color:var(--muted)">(included)</small>',
     ex_cam:'Bar staff service', ex_cam_p:'Quote · Min 4h',
     ex_aza:'Hostess / Host service', ex_aza_p:'Quote · Min 4h',
     s_trans_h:'🚚 Transport', trans_lbl:'Request transport', trans_price:'From €60',
@@ -1373,154 +1191,78 @@ function pillSync(input) {
   pill.classList.add('selected');
 }
 
-function updateBudget() {
-  let total = 0;
-
-  // Radios con precio
-  ['grifo','barriles','barriles_extra','vasos','marca'].forEach(n => {
-    const el = document.querySelector(`input[name="${n}"]:checked`);
-    if (el) total += +el.dataset.price || 0;
-  });
-
-  // Checkboxes con precio
-  ['bebidas','mob','cat','av','acc','accevt','transporte','extras'].forEach(n => {
-    document.querySelectorAll(`input[name="${n}"]:checked`).forEach(inp => {
-      total += +inp.dataset.price || 0;
-    });
-  });
-
-  // Nevera 237L +35€
-  if (document.getElementById('chk_nevera96') && document.getElementById('chk_nevera96').checked) total += 35;
-  if (document.getElementById('chk_nevera144') && document.getElementById('chk_nevera144').checked) total += 35;
-
-  // Impresora logo cerveza
-  const impCerv = document.querySelector('input[name="impresora_dias"]:checked');
-  if (impCerv) {
-    const precios = {'1dia':300,'2dias':500,'3dias':675,'4dias':800};
-    total += precios[impCerv.value] || 0;
-  }
-
-  // Impresora logo bebidas
-  const impBeb = document.querySelector('input[name="bebidas_impresora_dias"]:checked');
-  if (impBeb) {
-    const precios = {'1dia':300,'2dias':500,'3dias':675,'4dias':800};
-    total += precios[impBeb.value] || 0;
-  }
-
-  // Impresora logo barista
-  const impBar = document.querySelector('input[name="barista_impresora_dias"]:checked');
-  if (impBar) {
-    const precios = {'1dia':300,'2dias':500,'3dias':675,'4dias':800};
-    total += precios[impBar.value] || 0;
-  }
-
-  document.getElementById('budgetAmount').textContent = total.toLocaleString('es-ES') + ' €';
-}
-
-
-
-
-
-
-
-function toggleNevera96() {
-  const chk = document.getElementById('chk_beb96');
-  const opt = document.getElementById('nevera96_opt');
-  if (chk && chk.checked) {
-    opt.style.display = 'block';
-  } else {
-    opt.style.display = 'none';
-    const n = document.getElementById('chk_nevera96');
-    if (n) n.checked = false;
-  }
-}
-function toggleNevera144() {
-  const chk = document.getElementById('chk_beb144');
-  const opt = document.getElementById('nevera144_opt');
-  if (chk && chk.checked) {
-    opt.style.display = 'block';
-  } else {
-    opt.style.display = 'none';
-    const n = document.getElementById('chk_nevera144');
-    if (n) n.checked = false;
-  }
-}
-
-function toggleImpresoraBebidas() {
-  const chk = document.getElementById('chk_bebidas_impresora');
-  const dias = document.getElementById('bebidas_impresora_dias');
-  if (chk && chk.checked) {
-    dias.style.display = 'block';
-  } else {
-    dias.style.display = 'none';
-    document.querySelectorAll('input[name="bebidas_impresora_dias"]').forEach(r => r.checked = false);
-  }
-}
-
-function toggleImpresoraBarista() {
-  const chk = document.getElementById('chk_barista_impresora');
-  const dias = document.getElementById('barista_impresora_dias');
-  if (chk && chk.checked) {
-    dias.style.display = 'block';
-  } else {
-    dias.style.display = 'none';
-    document.querySelectorAll('input[name="barista_impresora_dias"]').forEach(r => r.checked = false);
-  }
-}
-
-
-function toggleGranizados() {
-  // sin desplegable, solo checkbox
-}
-
-function toggleBarista() {
-  const chk = document.getElementById('chk_barista');
-  const opts = document.getElementById('barista_opciones');
-  if (chk && chk.checked) {
-    opts.style.display = 'block';
-  } else {
-    opts.style.display = 'none';
-    document.getElementById('sel_barista_dias').value = '';
-    document.getElementById('sel_barista_ncafes').value = '';
-    // Reset impresora barista
-    const chkImp = document.getElementById('chk_barista_impresora');
-    if (chkImp) { chkImp.checked = false; toggleImpresoraBarista(); }
-  }
-}
-
-function toggleImpresora() {
-  const chk = document.getElementById('chk_impresora');
-  const dias = document.getElementById('impresora_dias');
-  if (chk && chk.checked) {
-    dias.style.display = 'block';
-  } else {
-    dias.style.display = 'none';
-    document.querySelectorAll('input[name="impresora_dias"]').forEach(r => r.checked = false);
-  }
-}
 
 function toggleIfema() {
   const si = document.getElementById('ifema_si');
   const input = document.getElementById('i_ifema');
-  if (si && si.checked) {
-    input.style.display = 'block';
-    input.focus();
-  } else {
-    input.style.display = 'none';
-    input.value = '';
+  if (si && si.checked) { input.style.display = 'block'; input.focus(); }
+  else { input.style.display = 'none'; input.value = ''; }
+}
+function toggleImpresora() {
+  const chk = document.getElementById('chk_impresora');
+  const dias = document.getElementById('impresora_dias');
+  if (chk && chk.checked) { dias.style.display = 'block'; }
+  else { dias.style.display = 'none'; document.querySelectorAll('input[name="impresora_dias"]').forEach(r => r.checked = false); }
+}
+function toggleImpresoraBebidas() {
+  const chk = document.getElementById('chk_bebidas_impresora');
+  const dias = document.getElementById('bebidas_impresora_dias');
+  if (chk && chk.checked) { dias.style.display = 'block'; }
+  else { dias.style.display = 'none'; document.querySelectorAll('input[name="bebidas_impresora_dias"]').forEach(r => r.checked = false); }
+}
+function toggleImpresoraBarista() {
+  const chk = document.getElementById('chk_barista_impresora');
+  const dias = document.getElementById('barista_impresora_dias');
+  if (chk && chk.checked) { dias.style.display = 'block'; }
+  else { dias.style.display = 'none'; document.querySelectorAll('input[name="barista_impresora_dias"]').forEach(r => r.checked = false); }
+}
+function toggleNevera96() {
+  const chk = document.getElementById('chk_beb96');
+  const opt = document.getElementById('nevera96_opt');
+  if (chk && chk.checked) { opt.style.display = 'block'; }
+  else { opt.style.display = 'none'; const n = document.getElementById('chk_nevera96'); if(n) n.checked = false; }
+}
+function toggleNevera144() {
+  const chk = document.getElementById('chk_beb144');
+  const opt = document.getElementById('nevera144_opt');
+  if (chk && chk.checked) { opt.style.display = 'block'; }
+  else { opt.style.display = 'none'; const n = document.getElementById('chk_nevera144'); if(n) n.checked = false; }
+}
+function toggleBarista() {
+  const chk = document.getElementById('chk_barista');
+  const opts = document.getElementById('barista_opciones');
+  if (chk && chk.checked) { opts.style.display = 'block'; }
+  else {
+    opts.style.display = 'none';
+    document.getElementById('sel_barista_dias').value = '';
+    document.getElementById('sel_barista_ncafes').value = '';
+    const ci = document.getElementById('chk_barista_impresora');
+    if (ci) { ci.checked = false; toggleImpresoraBarista(); }
   }
 }
 
-
-function showSuccess() {
-  document.getElementById('mainForm').style.display = 'none';
-  const s = document.getElementById('successSection');
-  if (s) {
-    s.style.display = 'block';
-    s.scrollIntoView({ behavior: 'smooth' });
-  }
+function updateBudget() {
+  let total = 0;
+  // Radios
+  ['grifo','barriles','barriles_extra','vasos','marca'].forEach(n => {
+    const el = document.querySelector(`input[name="${n}"]:checked`);
+    if (el) total += +el.dataset.price || 0;
+  });
+  // Checkboxes
+  ['bebidas','mob','cat','av','acc','accevt','transporte','extras'].forEach(n => {
+    document.querySelectorAll(`input[name="${n}"]:checked`).forEach(inp => { total += +inp.dataset.price || 0; });
+  });
+  // Neveras
+  if (document.getElementById('chk_nevera96') && document.getElementById('chk_nevera96').checked) total += 35;
+  if (document.getElementById('chk_nevera144') && document.getElementById('chk_nevera144').checked) total += 35;
+  // Impresoras
+  const precios = {'1dia':300,'2dias':500,'3dias':675,'4dias':800};
+  ['impresora_dias','bebidas_impresora_dias','barista_impresora_dias'].forEach(n => {
+    const r = document.querySelector(`input[name="${n}"]:checked`);
+    if (r) total += precios[r.value] || 0;
+  });
+  document.getElementById('budgetAmount').textContent = total.toLocaleString('es-ES') + ' €';
 }
-
 function handleSubmit(e) {
   e.preventDefault();
   if (!document.getElementById('privacidad').checked) {
@@ -1566,13 +1308,19 @@ function handleSubmit(e) {
     marca:           getRadio('marca'),
     vasos:           getRadio('vasos'),
     extras:          getChecked('extras'),
-    impresora_dias:  (function(){ const r = document.querySelector('input[name="impresora_dias"]:checked'); return r ? r.value : ''; })(),
     // Bebidas
     bebidas:  getChecked('bebidas'),
     nevera96_grande: document.getElementById('chk_nevera96') && document.getElementById('chk_nevera96').checked ? 'Sí +35€' : 'No',
     nevera144_grande: document.getElementById('chk_nevera144') && document.getElementById('chk_nevera144').checked ? 'Sí +35€' : 'No',
     bebidas_impresora: document.getElementById('chk_bebidas_impresora') && document.getElementById('chk_bebidas_impresora').checked ? 'Sí' : 'No',
     bebidas_impresora_dias: (function(){ const r = document.querySelector('input[name="bebidas_impresora_dias"]:checked'); return r ? r.value : ''; })(),
+    barista: document.getElementById('chk_barista') && document.getElementById('chk_barista').checked ? 'Sí' : 'No',
+    barista_granizados: document.getElementById('chk_granizados') && document.getElementById('chk_granizados').checked ? 'Sí' : 'No',
+    barista_dias: (document.getElementById('sel_barista_dias') || {}).value || '',
+    barista_ncafes: (document.getElementById('sel_barista_ncafes') || {}).value || '',
+    barista_impresora: document.getElementById('chk_barista_impresora') && document.getElementById('chk_barista_impresora').checked ? 'Sí' : 'No',
+    barista_impresora_dias: (function(){ const r = document.querySelector('input[name="barista_impresora_dias"]:checked'); return r ? r.value : ''; })(),
+    impresora_dias: (function(){ const r = document.querySelector('input[name="impresora_dias"]:checked'); return r ? r.value : ''; })(),
     // Catering
     cat:      getChecked('cat'),
     // Audiovisual
@@ -1585,23 +1333,12 @@ function handleSubmit(e) {
     // Transporte
     transporte: getChecked('transporte').length > 0,
     // Notas
-    barista:       document.getElementById('chk_barista') && document.getElementById('chk_barista').checked ? 'Sí' : 'No',
-    barista_granizados: document.getElementById('chk_granizados') && document.getElementById('chk_granizados').checked ? 'Sí' : 'No',
-    granizados_dias: (document.getElementById('sel_granizados_dias') || {}).value || '',
-    granizados_cantidad: (document.getElementById('sel_granizados_cantidad') || {}).value || '',
-    barista_impresora: document.getElementById('chk_barista_impresora') && document.getElementById('chk_barista_impresora').checked ? 'Sí' : 'No',
-    barista_impresora_dias: (function(){ const r = document.querySelector('input[name="barista_impresora_dias"]:checked'); return r ? r.value : ''; })(),
-    barista_dias:  (document.getElementById('sel_barista_dias') || {}).value || '',
-    barista_ncafes:(document.getElementById('sel_barista_ncafes') || {}).value || '',
     notas:      document.getElementById('notas_ta') ? document.getElementById('notas_ta').value.trim() : '',
     conociste:  document.getElementById('sel_conociste') ? document.getElementById('sel_conociste').value : '',
     cliente:    getRadio('cliente'),
     // Presupuesto estimado
     presupuesto: presupuesto
   };
-
-  // Mostrar success inmediatamente
-  showSuccess();
 
   // Show sending state
   const btn = document.getElementById('submit_btn');
@@ -1616,10 +1353,14 @@ function handleSubmit(e) {
     body: JSON.stringify(data)
   })
   .then(() => {
-    showSuccess();
+    document.getElementById('mainForm').style.display = 'none';
+    const s = document.getElementById('successSection');
+    if (s) { s.style.display = 'block'; s.scrollIntoView({ behavior: 'smooth' }); }
   })
   .catch(() => {
-    showSuccess();
+    document.getElementById('mainForm').style.display = 'none';
+    const s = document.getElementById('successSection');
+    if (s) { s.style.display = 'block'; s.scrollIntoView({ behavior: 'smooth' }); }
   })
   .finally(() => {
     btn.textContent = originalText;
@@ -1714,4 +1455,16 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     if (inp.type === 'checkbox' && inp.closest('.acc-item')) {
-      i
+      inp.closest('.acc-item').classList.toggle('selected', inp.checked);
+      updateBudget();
+    }
+
+    if (inp.type === 'radio' && inp.closest('.pill')) {
+      pillSync(inp);
+      updateBudget();
+    }
+  });
+});
+</script>
+</body>
+</html>
