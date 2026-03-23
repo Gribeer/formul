@@ -843,7 +843,7 @@
         <p class="success-contact-label">¿Necesitas algo urgente?</p>
         <div class="success-links">
           <a href="tel:+34919930393" class="success-link">📞 91 993 03 93</a>
-          <a href="/cdn-cgi/l/email-protection#41282f272e01263328232424336f222e2c" class="success-link">✉️ <span class="__cf_email__" data-cfemail="2b42454d446b4c5942494e4e5905484446">[email&#160;protected]</span></a>
+          <a href="mailto:info@gribeer.com" class="success-link">✉️ info@gribeer.com</a>
           <a href="https://gribeer.com" target="_blank" class="success-link">🌐 www.gribeer.com</a>
           <a href="https://www.instagram.com/gribeer_" target="_blank" class="success-link">📷 @gribeer_</a>
         </div>
@@ -855,7 +855,7 @@
 
 <footer>© 2026 <a href="https://gribeer.com/en/" target="_blank">Gribeer</a> – <span id="footer_txt">Servicios para Ferias, Eventos y Congresos</span></footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 // =====================================================
 // TRANSLATIONS
 // =====================================================
@@ -1455,4 +1455,16 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     if (inp.type === 'checkbox' && inp.closest('.acc-item')) {
-      i
+      inp.closest('.acc-item').classList.toggle('selected', inp.checked);
+      updateBudget();
+    }
+
+    if (inp.type === 'radio' && inp.closest('.pill')) {
+      pillSync(inp);
+      updateBudget();
+    }
+  });
+});
+</script>
+</body>
+</html>
