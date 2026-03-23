@@ -797,13 +797,13 @@
       <div class="section-body">
         <p style="color:#888;font-size:13px;margin-bottom:16px">¿Quieres más de un mismo producto, o algo que no aparece en el formulario? Cuéntanos aquí con detalle.</p>
         <div id="adicional_items" style="display:flex;flex-direction:column;gap:10px;margin-bottom:14px"></div>
-        <button type="button" onclick="addAdicional()" style="display:flex;align-items:center;gap:8px;background:#1a1506;border:1px dashed #c9a84c88;color:#c9a84c;border-radius:8px;padding:10px 16px;cursor:pointer;font-size:13px;font-weight:600;width:100%;justify-content:center;font-family:inherit">
+        <button type="button" id="btn_add_adicional" style="display:flex;align-items:center;gap:8px;background:#1a1506;border:1px dashed #c9a84c88;color:#c9a84c;border-radius:8px;padding:10px 16px;cursor:pointer;font-size:13px;font-weight:600;width:100%;justify-content:center;font-family:inherit">
           <span style="font-size:18px">&#xFF0B;</span> Añadir producto / petición
         </button>
         <div style="margin-top:16px;background:#151515;border-radius:8px;padding:12px 14px">
           <p style="color:#c9a84c;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">&#x1F4A1; Ejemplos rápidos</p>
-          <div style="display:flex;flex-wrap:wrap;gap:6px">
-            <button type="button" class="ejemplo-chip" data-texto="2x Pack Cafetera LOr 200 cafes">2× Pack Cafetera 200 cafés</button>
+          <div id="chips_adicional" style="display:flex;flex-wrap:wrap;gap:6px">
+            <button type="button" class="ejemplo-chip" data-texto="2x Pack Cafetera 200 cafes">2× Pack Cafetera 200 cafés</button>
             <button type="button" class="ejemplo-chip" data-texto="3x Canapes Pro 65ud">3× Canapés Pro</button>
             <button type="button" class="ejemplo-chip" data-texto="Pack Desayuno 200ud x 2">Pack Desayuno × 2</button>
             <button type="button" class="ejemplo-chip" data-texto="300 vasos cerveza extra">300 vasos extra</button>
@@ -861,24 +861,7 @@
     </div>
 
     <!-- SUCCESS -->
-        <h2 class="success-title">¡Solicitud enviada!</h2>
-        <p class="success-subtitle">Nos pondremos en contacto contigo en menos de <strong>24 horas</strong></p>
-        <div class="success-card">
-          <p>Gracias por confiar en <strong>Gribeer</strong>. Hemos recibido tu solicitud y nuestro equipo la revisará para prepararte una propuesta personalizada.</p>
-        </div>
-        <p class="success-contact-label">¿Necesitas algo urgente?</p>
-        <div class="success-links">
-          <a href="tel:+34919930393" class="success-link">📞 91 993 03 93</a>
-          <a href="/cdn-cgi/l/email-protection#432a2d252c0324312a212626316d202c2e" class="success-link">✉️ <span class="__cf_email__" data-cfemail="224b4c444d6245504b404747500c414d4f">[email&#160;protected]</span></a>
-          <a href="https://gribeer.com" target="_blank" class="success-link">🌐 www.gribeer.com</a>
-          <a href="https://www.instagram.com/gribeer_" target="_blank" class="success-link">📷 @gribeer_</a>
-        </div>
-      </div>
-    </div>
-
-  </form>
-
-<div id="successSection" style="display:none;padding:20px">
+    <div id="successSection" style="display:none">
       <div class="success-screen">
         <div class="success-icon">
           <div class="success-circle">
@@ -888,7 +871,22 @@
             </svg>
           </div>
         </div>
+        <h2 class="success-title">¡Solicitud enviada!</h2>
+        <p class="success-subtitle">Nos pondremos en contacto contigo en menos de <strong>24 horas</strong></p>
+        <div class="success-card">
+          <p>Gracias por confiar en <strong>Gribeer</strong>. Hemos recibido tu solicitud y nuestro equipo la revisará para prepararte una propuesta personalizada.</p>
+        </div>
+        <p class="success-contact-label">¿Necesitas algo urgente?</p>
+        <div class="success-links">
+          <a href="tel:+34919930393" class="success-link">📞 91 993 03 93</a>
+          <a href="/cdn-cgi/l/email-protection#9bf2f5fdf4dbfce9f2f9fefee9b5f8f4f6" class="success-link">✉️ <span class="__cf_email__" data-cfemail="d9b0b7bfb699beabb0bbbcbcabf7bab6b4">[email&#160;protected]</span></a>
+          <a href="https://gribeer.com" target="_blank" class="success-link">🌐 www.gribeer.com</a>
+          <a href="https://www.instagram.com/gribeer_" target="_blank" class="success-link">📷 @gribeer_</a>
+        </div>
+      </div>
+    </div>
 
+  </form>
 </div>
 
 <footer>© 2026 <a href="https://gribeer.com/en/" target="_blank">Gribeer</a> – <span id="footer_txt">Servicios para Ferias, Eventos y Congresos</span></footer>
@@ -1376,7 +1374,7 @@ function handleSubmit(e) {
     cliente:    getRadio('cliente'),
     // Presupuesto estimado
     presupuesto: presupuesto,
-    adicional: (function(){ try { return JSON.parse(document.getElementById('adicional_json_input').value || '[]'); } catch(e) { return []; } })()
+    adicional: (function(){ try { return JSON.parse(document.getElementById('adicional_json_input').value||'[]'); } catch(e){ return []; } })()
   };
 
   // Show sending state
@@ -1400,13 +1398,20 @@ function handleSubmit(e) {
 }
 
 function showSuccess() {
-  const form = document.getElementById('mainForm');
-  if (form) form.style.display = 'none';
-  const s = document.getElementById('successSection');
+  // Ocultar todas las secciones del form excepto success
+  document.querySelectorAll('.form-section:not(#successSection)').forEach(function(s) {
+    s.style.display = 'none';
+  });
+  // Ocultar header, budget bar, submit area
+  ['form-header','budget-bar','submit-area','hero-section'].forEach(function(cls) {
+    var els = document.querySelectorAll('.' + cls);
+    els.forEach(function(el) { el.style.display = 'none'; });
+  });
+  // Mostrar success
+  var s = document.getElementById('successSection');
   if (s) {
     s.style.display = 'block';
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    setTimeout(() => { s.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 150);
   }
 }
 
@@ -1417,41 +1422,22 @@ function showSuccess() {
 
 // ── ADICIONAL ──────────────────────────────────────────────────────────────
 var _adicionalCount = 0;
-
 function addAdicional(texto) {
   var container = document.getElementById('adicional_items');
   var id = ++_adicionalCount;
   var row = document.createElement('div');
-  row.className = 'adicional-row';
-  row.dataset.id = id;
-  var numInp = document.createElement('input');
-  numInp.type = 'number'; numInp.min = '1'; numInp.max = '99'; numInp.value = '1';
-  numInp.title = 'Cantidad';
-  numInp.addEventListener('input', syncAdicionalJson);
-  var txtInp = document.createElement('input');
-  txtInp.type = 'text';
-  txtInp.placeholder = 'Describe el producto o servicio...';
-  txtInp.addEventListener('input', syncAdicionalJson);
-  if (texto) txtInp.value = texto;
-  var btn = document.createElement('button');
-  btn.type = 'button'; btn.className = 'adicional-remove'; btn.textContent = '✕';
-  btn.addEventListener('click', function() { row.remove(); syncAdicionalJson(); });
-  row.appendChild(numInp); row.appendChild(txtInp); row.appendChild(btn);
-  container.appendChild(row);
-  syncAdicionalJson();
-  txtInp.focus();
+  row.className = 'adicional-row'; row.dataset.id = id;
+  var n = document.createElement('input'); n.type='number'; n.min='1'; n.max='99'; n.value='1'; n.title='Cantidad'; n.addEventListener('input',syncAdicionalJson);
+  var t = document.createElement('input'); t.type='text'; t.placeholder='Describe el producto o servicio...'; t.addEventListener('input',syncAdicionalJson);
+  if (texto) t.value = texto;
+  var b = document.createElement('button'); b.type='button'; b.className='adicional-remove'; b.textContent='✕'; b.addEventListener('click',function(){ row.remove(); syncAdicionalJson(); });
+  row.appendChild(n); row.appendChild(t); row.appendChild(b);
+  container.appendChild(row); syncAdicionalJson(); t.focus();
 }
-
 function syncAdicionalJson() {
-  var rows = document.querySelectorAll('.adicional-row');
-  var items = [];
-  rows.forEach(function(row) {
-    var qty = parseInt(row.querySelector('input[type="number"]').value) || 1;
-    var texto = row.querySelector('input[type="text"]').value.trim();
-    if (texto) items.push({ qty: qty, texto: texto });
-  });
-  var el = document.getElementById('adicional_json_input');
-  if (el) el.value = JSON.stringify(items);
+  var rows = document.querySelectorAll('.adicional-row'), items = [];
+  rows.forEach(function(r){ var q=parseInt(r.querySelector('input[type="number"]').value)||1, t=r.querySelector('input[type="text"]').value.trim(); if(t) items.push({qty:q,texto:t}); });
+  var el=document.getElementById('adicional_json_input'); if(el) el.value=JSON.stringify(items);
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -1459,11 +1445,10 @@ document.addEventListener('DOMContentLoaded', function() {
   // Form submit
   const form = document.getElementById('mainForm');
   if (form) form.addEventListener('submit', handleSubmit);
-
-  // Chips de ejemplo adicional
-  document.querySelectorAll('.ejemplo-chip').forEach(function(chip) {
-    chip.addEventListener('click', function() { addAdicional(chip.dataset.texto); });
-  });
+  // Adicional
+  var btnAdd = document.getElementById('btn_add_adicional');
+  if (btnAdd) btnAdd.addEventListener('click', function(){ addAdicional(''); });
+  document.querySelectorAll('.ejemplo-chip').forEach(function(c){ c.addEventListener('click',function(){ addAdicional(c.dataset.texto); }); });
 
   // Pill inputs
   document.querySelectorAll('.pill input').forEach(inp => {
@@ -1487,45 +1472,39 @@ document.addEventListener('DOMContentLoaded', function() {
       return;
     }
 
-    // .check-option
+    // .check-option — funciona al pinchar en cualquier parte del cuadro
     const checkOpt = e.target.closest('.check-option');
     if (checkOpt) {
+      const inp = checkOpt.querySelector('input[type="checkbox"]');
       if (!e.target.matches('input')) {
-        // Click en el label: toggle manual
-        const inp = checkOpt.querySelector('input[type="checkbox"]');
-        if (inp) { inp.checked = !inp.checked; }
+        if (inp) inp.checked = !inp.checked;
         checkOpt.classList.toggle('selected', inp ? inp.checked : false);
         updateBudget();
-        return;
       }
-      // Click directo en checkbox: dejar que el browser lo maneje, el change handler sincroniza
       return;
     }
 
-    // .pack-card
+    // .pack-card — funciona al pinchar en cualquier parte del cuadro
     const packCard = e.target.closest('.pack-card');
     if (packCard) {
+      const inp = packCard.querySelector('input[type="checkbox"]');
       if (!e.target.matches('input')) {
-        const inp = packCard.querySelector('input[type="checkbox"]');
-        if (inp) { inp.checked = !inp.checked; }
+        if (inp) inp.checked = !inp.checked;
         packCard.classList.toggle('selected', inp ? inp.checked : false);
-        // Disparar onchange si existe (ej: toggleNevera96)
         if (inp) inp.dispatchEvent(new Event('change', {bubbles:true}));
         updateBudget();
-        return;
       }
       return;
     }
 
-    // .acc-item
+    // .acc-item — funciona al pinchar en cualquier parte del cuadro
     const accItem = e.target.closest('.acc-item');
     if (accItem) {
+      const inp = accItem.querySelector('input[type="checkbox"]');
       if (!e.target.matches('input')) {
-        const inp = accItem.querySelector('input[type="checkbox"]');
-        if (inp) { inp.checked = !inp.checked; }
+        if (inp) inp.checked = !inp.checked;
         accItem.classList.toggle('selected', inp ? inp.checked : false);
         updateBudget();
-        return;
       }
       return;
     }
@@ -1555,7 +1534,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     if (inp.type === 'checkbox' && inp.closest('.acc-item')) {
-      inp.closest('.acc-item').classList.toggle('selected', inp.checked);
+      i
+np.closest('.acc-item').classList.toggle('selected', inp.checked);
       updateBudget();
     }
   });
