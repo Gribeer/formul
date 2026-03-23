@@ -410,6 +410,32 @@
   .success-link { display:inline-block; padding:10px 18px; border:1px solid var(--border); border-radius:8px; background:var(--dark3); color:var(--text); text-decoration:none; font-size:13px; transition:border-color 0.2s,color 0.2s; }
   .success-link:hover { border-color:var(--gold); color:var(--gold); }
 
+
+  /* ── SECCIÓN ADICIONAL ── */
+  .ejemplo-chip {
+    background: #1a1506; border: 1px solid #c9a84c44; color: #c9a84c88;
+    border-radius: 20px; padding: 5px 12px; cursor: pointer; font-size: 11px;
+    transition: all .15s; font-family: inherit;
+  }
+  .ejemplo-chip:hover { background: #2a1f08; border-color: #c9a84c; color: #c9a84c; }
+  .adicional-row {
+    display: flex; gap: 8px; align-items: center;
+    background: #1a1506; border: 1px solid #c9a84c44; border-radius: 8px; padding: 10px 12px;
+  }
+  .adicional-row input[type="number"] {
+    width: 60px; background: #0d0d0d; border: 1px solid #c9a84c44; border-radius: 5px;
+    color: #c9a84c; font-size: 14px; font-weight: 700; text-align: center; padding: 6px;
+    font-family: inherit;
+  }
+  .adicional-row input[type="text"] {
+    flex: 1; background: #0d0d0d; border: 1px solid #333; border-radius: 5px;
+    color: #e0e0e0; font-size: 13px; padding: 7px 10px; font-family: inherit;
+  }
+  .adicional-row input:focus { outline: none; border-color: #c9a84c44; }
+  .adicional-remove {
+    background: #2a0a0a; border: none; color: #e05555; cursor: pointer;
+    border-radius: 5px; padding: 6px 10px; font-size: 14px; line-height: 1;
+  }
 </style>
 </head>
 <body>
@@ -779,7 +805,34 @@
     </div>
 
     <!-- 9. NOTAS -->
+        <!-- SECCIÓN ADICIONAL -->
     <div class="form-section">
+      <div class="section-header" style="background:linear-gradient(135deg,#1a1506,#2a1f08)">
+        <div class="section-number" style="background:#c9a84c;color:#0d0d0d;font-size:18px;line-height:1">+</div>
+        <h2>✏️ Petición adicional / personalizada</h2>
+      </div>
+      <div class="section-body">
+        <p style="color:#888;font-size:13px;margin-bottom:16px">¿Quieres más de un mismo producto, o algo que no aparece en el formulario? Cuéntanos aquí con detalle.</p>
+        <div id="adicional_items" style="display:flex;flex-direction:column;gap:10px;margin-bottom:14px"></div>
+        <button type="button" onclick="addAdicional()" style="display:flex;align-items:center;gap:8px;background:#1a1506;border:1px dashed #c9a84c88;color:#c9a84c;border-radius:8px;padding:10px 16px;cursor:pointer;font-size:13px;font-weight:600;width:100%;justify-content:center;font-family:inherit">
+          <span style="font-size:18px">＋</span> Añadir producto / petición
+        </button>
+        <div style="margin-top:16px;background:#151515;border-radius:8px;padding:12px 14px">
+          <p style="color:#c9a84c;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">💡 Ejemplos rápidos</p>
+          <div style="display:flex;flex-wrap:wrap;gap:6px">
+            <button type="button" class="ejemplo-chip" onclick="addAdicionalEjemplo(this)" data-texto="2× Pack Cafetera L'Or 200 cafés">2× Pack Cafetera 200 cafés</button>
+            <button type="button" class="ejemplo-chip" onclick="addAdicionalEjemplo(this)" data-texto="3× Canapés Pro 65ud">3× Canapés Pro</button>
+            <button type="button" class="ejemplo-chip" onclick="addAdicionalEjemplo(this)" data-texto="Pack Desayuno 200ud × 2">Pack Desayuno × 2</button>
+            <button type="button" class="ejemplo-chip" onclick="addAdicionalEjemplo(this)" data-texto="300 vasos cerveza extra">300 vasos extra</button>
+            <button type="button" class="ejemplo-chip" onclick="addAdicionalEjemplo(this)" data-texto="2× Pack Bebidas Nevera 96ud">2× Pack Bebidas 96ud</button>
+            <button type="button" class="ejemplo-chip" onclick="addAdicionalEjemplo(this)" data-texto="Servicio camarero 2 días">Camarero 2 días</button>
+          </div>
+        </div>
+        <input type="hidden" name="adicional_json" id="adicional_json_input">
+      </div>
+    </div>
+
+<div class="form-section">
       <div class="section-header"><div class="section-number">10</div><h2 id="s8_h">Notas adicionales</h2></div>
       <div class="section-body">
         <div class="field" style="margin-bottom:16px">
@@ -825,7 +878,23 @@
     </div>
 
     <!-- SUCCESS -->
-    <div class="form-section" id="successSection" style="display:none">
+        <h2 class="success-title">¡Solicitud enviada!</h2>
+        <p class="success-subtitle">Nos pondremos en contacto contigo en menos de <strong>24 horas</strong></p>
+        <div class="success-card">
+          <p>Gracias por confiar en <strong>Gribeer</strong>. Hemos recibido tu solicitud y nuestro equipo la revisará para prepararte una propuesta personalizada.</p>
+        </div>
+        <p class="success-contact-label">¿Necesitas algo urgente?</p>
+        <div class="success-links">
+          <a href="tel:+34919930393" class="success-link">📞 91 993 03 93</a>
+          <a href="/cdn-cgi/l/email-protection#7811161e17381f0a111a1d1d0a561b1715" class="success-link">✉️ <span class="__cf_email__" data-cfemail="a8c1c6cec7e8cfdac1cacdcdda86cbc7c5">[email&#160;protected]</span></a>
+          <a href="https://gribeer.com" target="_blank" class="success-link">🌐 www.gribeer.com</a>
+          <a href="https://www.instagram.com/gribeer_" target="_blank" class="success-link">📷 @gribeer_</a>
+        </div>
+      </div>
+    </div>
+
+  </form>
+<div class="form-section" id="successSection" style="display:none">
       <div class="success-screen">
         <div class="success-icon">
           <div class="success-circle">
@@ -835,27 +904,11 @@
             </svg>
           </div>
         </div>
-        <h2 class="success-title">¡Solicitud enviada!</h2>
-        <p class="success-subtitle">Nos pondremos en contacto contigo en menos de <strong>24 horas</strong></p>
-        <div class="success-card">
-          <p>Gracias por confiar en <strong>Gribeer</strong>. Hemos recibido tu solicitud y nuestro equipo la revisará para prepararte una propuesta personalizada.</p>
-        </div>
-        <p class="success-contact-label">¿Necesitas algo urgente?</p>
-        <div class="success-links">
-          <a href="tel:+34919930393" class="success-link">📞 91 993 03 93</a>
-          <a href="mailto:info@gribeer.com" class="success-link">✉️ info@gribeer.com</a>
-          <a href="https://gribeer.com" target="_blank" class="success-link">🌐 www.gribeer.com</a>
-          <a href="https://www.instagram.com/gribeer_" target="_blank" class="success-link">📷 @gribeer_</a>
-        </div>
-      </div>
-    </div>
-
-  </form>
 </div>
 
 <footer>© 2026 <a href="https://gribeer.com/en/" target="_blank">Gribeer</a> – <span id="footer_txt">Servicios para Ferias, Eventos y Congresos</span></footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // =====================================================
 // TRANSLATIONS
 // =====================================================
@@ -1337,7 +1390,8 @@ function handleSubmit(e) {
     conociste:  document.getElementById('sel_conociste') ? document.getElementById('sel_conociste').value : '',
     cliente:    getRadio('cliente'),
     // Presupuesto estimado
-    presupuesto: presupuesto
+    presupuesto: presupuesto,
+    adicional: (function(){ try { return JSON.parse(document.getElementById('adicional_json_input').value || '[]'); } catch(e) { return []; } })()
   };
 
   // Show sending state
@@ -1352,26 +1406,71 @@ function handleSubmit(e) {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data)
   })
-  .then(() => {
-    document.getElementById('mainForm').style.display = 'none';
-    const s = document.getElementById('successSection');
-    if (s) { s.style.display = 'block'; s.scrollIntoView({ behavior: 'smooth' }); }
-  })
-  .catch(() => {
-    document.getElementById('mainForm').style.display = 'none';
-    const s = document.getElementById('successSection');
-    if (s) { s.style.display = 'block'; s.scrollIntoView({ behavior: 'smooth' }); }
-  })
+  .then(() => { showSuccess(); })
+  .catch(() => { showSuccess(); })
   .finally(() => {
     btn.textContent = originalText;
     btn.disabled = false;
   });
 }
 
+function showSuccess() {
+  // Ocultar el formulario completo
+  const form = document.getElementById('mainForm');
+  if (form) form.style.display = 'none';
+  // Mostrar pantalla éxito
+  const s = document.getElementById('successSection');
+  if (s) {
+    s.style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setTimeout(() => { s.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 150);
+  }
+}
+
 // =====================================================
 // EVENT DELEGATION — replaces all onclick= attributes
 // Works even when Cloudflare rewrites inline handlers
 // =====================================================
+
+// ── ADICIONAL ──────────────────────────────────────────────────────────────
+var _adicionalCount = 0;
+
+function addAdicional(texto) {
+  var container = document.getElementById('adicional_items');
+  var id = ++_adicionalCount;
+  var row = document.createElement('div');
+  row.className = 'adicional-row';
+  row.dataset.id = id;
+  row.innerHTML =
+    '<input type="number" min="1" max="99" value="1" title="Cantidad" oninput="syncAdicionalJson()">' +
+    '<input type="text" placeholder="Ej: Pack Cafetera L'Or 200 cafés, vasos extra..." ' +
+      'value="' + (texto || '') + '" oninput="syncAdicionalJson()">' +
+    '<button type="button" class="adicional-remove" onclick="removeAdicional(' + id + ')">✕</button>';
+  container.appendChild(row);
+  syncAdicionalJson();
+  row.querySelector('input[type="text"]').focus();
+}
+
+function addAdicionalEjemplo(btn) {
+  addAdicional(btn.dataset.texto);
+}
+
+function removeAdicional(id) {
+  var row = document.querySelector('.adicional-row[data-id="' + id + '"]');
+  if (row) { row.remove(); syncAdicionalJson(); }
+}
+
+function syncAdicionalJson() {
+  var rows = document.querySelectorAll('.adicional-row');
+  var items = [];
+  rows.forEach(function(row) {
+    var qty = parseInt(row.querySelector('input[type="number"]').value) || 1;
+    var texto = row.querySelector('input[type="text"]').value.trim();
+    if (texto) items.push({ qty: qty, texto: texto });
+  });
+  document.getElementById('adicional_json_input').value = JSON.stringify(items);
+}
+
 document.addEventListener('DOMContentLoaded', function() {
 
   // Form submit
@@ -1402,30 +1501,42 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // .check-option
     const checkOpt = e.target.closest('.check-option');
-    if (checkOpt && !e.target.matches('input')) {
-      checkOpt.classList.toggle('selected');
-      const inp = checkOpt.querySelector('input[type="checkbox"]');
-      if (inp) { inp.checked = !inp.checked; }
+    if (checkOpt) {
+      if (e.target.matches('input[type="checkbox"]')) {
+        checkOpt.classList.toggle('selected', e.target.checked);
+      } else {
+        checkOpt.classList.toggle('selected');
+        const inp = checkOpt.querySelector('input[type="checkbox"]');
+        if (inp) inp.checked = checkOpt.classList.contains('selected');
+      }
       updateBudget();
       return;
     }
 
     // .pack-card
     const packCard = e.target.closest('.pack-card');
-    if (packCard && !e.target.matches('input')) {
-      packCard.classList.toggle('selected');
-      const inp = packCard.querySelector('input[type="checkbox"]');
-      if (inp) inp.checked = packCard.classList.contains('selected');
+    if (packCard) {
+      if (e.target.matches('input[type="checkbox"]')) {
+        packCard.classList.toggle('selected', e.target.checked);
+      } else {
+        packCard.classList.toggle('selected');
+        const inp = packCard.querySelector('input[type="checkbox"]');
+        if (inp) inp.checked = packCard.classList.contains('selected');
+      }
       updateBudget();
       return;
     }
 
     // .acc-item
     const accItem = e.target.closest('.acc-item');
-    if (accItem && !e.target.matches('input')) {
-      accItem.classList.toggle('selected');
-      const inp = accItem.querySelector('input[type="checkbox"]');
-      if (inp) inp.checked = accItem.classList.contains('selected');
+    if (accItem) {
+      if (e.target.matches('input[type="checkbox"]')) {
+        accItem.classList.toggle('selected', e.target.checked);
+      } else {
+        accItem.classList.toggle('selected');
+        const inp = accItem.querySelector('input[type="checkbox"]');
+        if (inp) inp.checked = accItem.classList.contains('selected');
+      }
       updateBudget();
       return;
     }
@@ -1455,16 +1566,4 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     if (inp.type === 'checkbox' && inp.closest('.acc-item')) {
-      inp.closest('.acc-item').classList.toggle('selected', inp.checked);
-      updateBudget();
-    }
-
-    if (inp.type === 'radio' && inp.closest('.pill')) {
-      pillSync(inp);
-      updateBudget();
-    }
-  });
-});
-</script>
-</body>
-</html>
+      i
