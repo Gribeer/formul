@@ -20,7 +20,7 @@
     --white: #FDFAF4;
     --section-bg: #161616;
   }
- 
+
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   body {
@@ -1023,7 +1023,7 @@
           <p class="success-contact-label" id="suc_contact_label">¿Necesitas algo urgente?</p>
           <div class="success-links">
             <a href="tel:+34919930393" class="success-link">📞 91 993 03 93</a>
-            <a href="mailto:info@gribeer.com" class="success-link">✉️ info@gribeer.com</a>
+            <a href="/cdn-cgi/l/email-protection#caa3a4aca58aadb8a3a8afafb8e4a9a5a7" class="success-link">✉️ <span class="__cf_email__" data-cfemail="f891969e97b89f8a919a9d9d8ad69b9795">[email&#160;protected]</span></a>
             <a href="https://gribeer.com" target="_blank" class="success-link">🌐 www.gribeer.com</a>
             <a href="https://www.instagram.com/gribeer_" target="_blank" class="success-link">📷 @gribeer_</a>
           </div>
@@ -1037,7 +1037,7 @@
 
 <footer>© 2026 <a href="https://gribeer.com/en/" target="_blank">Gribeer</a> – <span id="footer_txt">Servicios para Ferias, Eventos y Congresos</span></footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // =====================================================
 // TRANSLATIONS
 // =====================================================
@@ -1511,6 +1511,16 @@ function toggleIfema() {
   }
 }
 
+
+function showSuccess() {
+  document.getElementById('mainForm').style.display = 'none';
+  const s = document.getElementById('successSection');
+  if (s) {
+    s.style.display = 'block';
+    s.scrollIntoView({ behavior: 'smooth' });
+  }
+}
+
 function handleSubmit(e) {
   e.preventDefault();
   if (!document.getElementById('privacidad').checked) {
@@ -1590,6 +1600,9 @@ function handleSubmit(e) {
     presupuesto: presupuesto
   };
 
+  // Mostrar success inmediatamente
+  showSuccess();
+
   // Show sending state
   const btn = document.getElementById('submit_btn');
   const originalText = btn.textContent;
@@ -1603,18 +1616,10 @@ function handleSubmit(e) {
     body: JSON.stringify(data)
   })
   .then(() => {
-    // no-cors means we can't read the response, but if no error = sent
-    document.getElementById('mainForm').style.display = 'none';
-    const s = document.getElementById('successSection');
-    s.style.display = 'block';
-    s.scrollIntoView({ behavior: 'smooth' });
+    showSuccess();
   })
   .catch(() => {
-    // Even on network error, show success — Apps Script likely received it
-    document.getElementById('mainForm').style.display = 'none';
-    const s = document.getElementById('successSection');
-    s.style.display = 'block';
-    s.scrollIntoView({ behavior: 'smooth' });
+    showSuccess();
   })
   .finally(() => {
     btn.textContent = originalText;
@@ -1709,16 +1714,4 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     if (inp.type === 'checkbox' && inp.closest('.acc-item')) {
-      inp.closest('.acc-item').classList.toggle('selected', inp.checked);
-      updateBudget();
-    }
-
-    if (inp.type === 'radio' && inp.closest('.pill')) {
-      pillSync(inp);
-      updateBudget();
-    }
-  });
-});
-</script>
-</body>
-</html>
+      i
