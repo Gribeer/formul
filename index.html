@@ -878,7 +878,7 @@
 
   </form>
 
-<div class="form-section" id="successSection" style="display:none">
+<div id="successSection" style="display:none;padding:20px">
       <div class="success-screen">
         <div class="success-icon">
           <div class="success-circle">
@@ -1489,31 +1489,44 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // .check-option
     const checkOpt = e.target.closest('.check-option');
-    if (checkOpt && !e.target.matches('input')) {
-      checkOpt.classList.toggle('selected');
-      const inp = checkOpt.querySelector('input[type="checkbox"]');
-      if (inp) { inp.checked = !inp.checked; }
-      updateBudget();
+    if (checkOpt) {
+      if (!e.target.matches('input')) {
+        // Click en el label: toggle manual
+        const inp = checkOpt.querySelector('input[type="checkbox"]');
+        if (inp) { inp.checked = !inp.checked; }
+        checkOpt.classList.toggle('selected', inp ? inp.checked : false);
+        updateBudget();
+        return;
+      }
+      // Click directo en checkbox: dejar que el browser lo maneje, el change handler sincroniza
       return;
     }
 
     // .pack-card
     const packCard = e.target.closest('.pack-card');
-    if (packCard && !e.target.matches('input')) {
-      packCard.classList.toggle('selected');
-      const inp = packCard.querySelector('input[type="checkbox"]');
-      if (inp) inp.checked = packCard.classList.contains('selected');
-      updateBudget();
+    if (packCard) {
+      if (!e.target.matches('input')) {
+        const inp = packCard.querySelector('input[type="checkbox"]');
+        if (inp) { inp.checked = !inp.checked; }
+        packCard.classList.toggle('selected', inp ? inp.checked : false);
+        // Disparar onchange si existe (ej: toggleNevera96)
+        if (inp) inp.dispatchEvent(new Event('change', {bubbles:true}));
+        updateBudget();
+        return;
+      }
       return;
     }
 
     // .acc-item
     const accItem = e.target.closest('.acc-item');
-    if (accItem && !e.target.matches('input')) {
-      accItem.classList.toggle('selected');
-      const inp = accItem.querySelector('input[type="checkbox"]');
-      if (inp) inp.checked = accItem.classList.contains('selected');
-      updateBudget();
+    if (accItem) {
+      if (!e.target.matches('input')) {
+        const inp = accItem.querySelector('input[type="checkbox"]');
+        if (inp) { inp.checked = !inp.checked; }
+        accItem.classList.toggle('selected', inp ? inp.checked : false);
+        updateBudget();
+        return;
+      }
       return;
     }
   });
