@@ -298,28 +298,6 @@
   }
 
   .pill:hover, .pill.selected { border-color: var(--gold); background: #201B0D; color: var(--gold); }
-
-  .ejemplo-chip {
-    background: #1a1506; border: 1px solid #c9a84c44; color: #c9a84c88;
-    border-radius: 20px; padding: 5px 12px; cursor: pointer; font-size: 11px;
-    transition: all .15s;
-  }
-  .ejemplo-chip:hover { background: #2a1f08; border-color: #c9a84c; color: #c9a84c; }
-
-  .adicional-row {
-    display: flex; gap: 8px; align-items: center;
-    background: #1a1506; border: 1px solid #c9a84c44; border-radius: 8px; padding: 10px 12px;
-  }
-  .adicional-row input[type="number"] {
-    width: 56px; background: #0d0d0d; border: 1px solid #c9a84c44; border-radius: 5px;
-    color: #c9a84c; font-size: 14px; font-weight: 700; text-align: center; padding: 5px;
-  }
-  .adicional-row input[type="text"] {
-    flex: 1; background: #0d0d0d; border: 1px solid #333; border-radius: 5px;
-    color: #e0e0e0; font-size: 13px; padding: 6px 10px;
-  }
-  .adicional-row input[type="text"]:focus { outline: none; border-color: #c9a84c44; }
-  .adicional-remove { background: #2a0a0a; border: none; color: #e05555; cursor: pointer; border-radius: 5px; padding: 5px 9px; font-size: 13px; }
   .pill input { accent-color: var(--gold); width: auto; }
 
   /* ─── BUDGET ─── */
@@ -542,11 +520,11 @@
         <p class="hint" id="s2_hint">Grifo <strong>GRATIS</strong> a partir de 2 barriles (Opción 3). Las Opciones 1 y 2 tienen suplemento por bandeja adicional.</p>
         <p class="subsection-title" id="s2_tipo">Tipo de instalación</p>
         <div class="radio-group">
-          <label class="radio-option"><input type="radio" name="grifo" value="sin_grifo"><span class="option-label" id="g_sin">Sin grifo</span></label>
-          <label class="radio-option"><input type="radio" name="grifo" value="op1"><span class="option-label" id="g_op1">Opción 1 – Bandeja pinza</span><span class="option-price">+65€</span></label>
-          <label class="radio-option"><input type="radio" name="grifo" value="op2"><span class="option-label" id="g_op2">Opción 2 – Bandeja encastrada <small style="color:var(--muted)">(solo FERIAS con montaje stand)</small></span><span class="option-price">+130€</span></label>
-          <label class="radio-option"><input type="radio" name="grifo" value="op3"><span class="option-label" id="g_op3">Opción 3 – Grifo estándar (incluido)</span></label>
-          <label class="radio-option"><input type="radio" name="grifo" value="v100"><span class="option-label" id="g_v100">Grifo V-100 Portátil Grande</span><span class="option-price" id="g_v100p">Presupuesto</span></label>
+          <label class="radio-option"><input type="radio" name="grifo" value="sin_grifo" data-price="0" onchange="updateBudget()"><span class="option-label" id="g_sin">Sin grifo</span></label>
+          <label class="radio-option"><input type="radio" name="grifo" value="op1" data-price="65" onchange="updateBudget()"><span class="option-label" id="g_op1">Opción 1 – Bandeja pinza</span><span class="option-price">+65€</span></label>
+          <label class="radio-option"><input type="radio" name="grifo" value="op2" data-price="130" onchange="updateBudget()"><span class="option-label" id="g_op2">Opción 2 – Bandeja encastrada <small style="color:var(--muted)">(solo FERIAS con montaje stand)</small></span><span class="option-price">+130€</span></label>
+          <label class="radio-option"><input type="radio" name="grifo" value="op3" data-price="0" onchange="updateBudget()"><span class="option-label" id="g_op3">Opción 3 – Grifo estándar (incluido)</span></label>
+          <label class="radio-option"><input type="radio" name="grifo" value="v100" data-price="0" onchange="updateBudget()"><span class="option-label" id="g_v100">Grifo V-100 Portátil Grande</span><span class="option-price" id="g_v100p">Presupuesto</span></label>
         </div>
         <hr class="divider">
         <p class="subsection-title" id="s2_barriles_t">Pack de barriles</p>
@@ -556,7 +534,7 @@
           <label class="radio-option"><input type="radio" name="barriles" value="2b" data-price="276"><span class="option-label" id="b_2">Grifo + 2 Barriles 30L</span><span class="option-price">276€</span></label>
         </div>
         <p class="subsection-title" style="margin-top:16px" id="s2_extra_t">Barriles adicionales (30L · 138€ c/u)</p>
-        <div class="pills" style="flex-wrap:wrap;gap:6px">
+        <div class="pills">
           <label class="pill"><input type="radio" name="barriles_extra" value="0" data-price="0" onchange="pillSync(this);updateBudget()"><span id="none_lbl">Ninguno</span></label>
           <label class="pill"><input type="radio" name="barriles_extra" value="1" data-price="138" onchange="pillSync(this);updateBudget()">+1 <strong>138€</strong></label>
           <label class="pill"><input type="radio" name="barriles_extra" value="2" data-price="276" onchange="pillSync(this);updateBudget()">+2 <strong>276€</strong></label>
@@ -564,7 +542,6 @@
           <label class="pill"><input type="radio" name="barriles_extra" value="4" data-price="552" onchange="pillSync(this);updateBudget()">+4 <strong>552€</strong></label>
           <label class="pill"><input type="radio" name="barriles_extra" value="5" data-price="690" onchange="pillSync(this);updateBudget()">+5 <strong>690€</strong></label>
         </div>
-
         <p class="subsection-title" style="margin-top:16px" id="s2_marca_t">Marca de cerveza</p>
         <div class="pills">
           <label class="pill"><input type="radio" name="marca" value="ind" onchange="pillSync(this)"><span id="marca_any">Indiferente</span></label>
@@ -591,10 +568,10 @@
           </label>
           <div id="impresora_dias" style="display:none; margin-left:28px; margin-top:8px;">
             <div style="display:flex; flex-wrap:wrap; gap:8px;">
-              <label class="ifema-opt"><input type="radio" name="impresora_dias" value="1dia"> <span>1 día · 300€</span></label>
-              <label class="ifema-opt"><input type="radio" name="impresora_dias" value="2dias"> <span>2 días · 500€</span></label>
-              <label class="ifema-opt"><input type="radio" name="impresora_dias" value="3dias"> <span>3 días · 675€</span></label>
-              <label class="ifema-opt"><input type="radio" name="impresora_dias" value="4dias"> <span>4 días · 800€</span></label>
+              <label class="ifema-opt"><input type="radio" name="impresora_dias" value="1dia" onchange="updateBudget()"> <span>1 día · 300€</span></label>
+              <label class="ifema-opt"><input type="radio" name="impresora_dias" value="2dias" onchange="updateBudget()"> <span>2 días · 500€</span></label>
+              <label class="ifema-opt"><input type="radio" name="impresora_dias" value="3dias" onchange="updateBudget()"> <span>3 días · 675€</span></label>
+              <label class="ifema-opt"><input type="radio" name="impresora_dias" value="4dias" onchange="updateBudget()"> <span>4 días · 800€</span></label>
             </div>
           </div>
           <label class="check-option"><input type="checkbox" name="extras" value="cam"><span class="option-label" id="ex_cam">Servicio de camareros</span><span class="option-price" id="ex_cam_p">Presupuesto · Mín 4h</span></label>
@@ -860,37 +837,6 @@
           </label>
         </div>
         <p style="font-size:11px;color:var(--muted);margin-top:10px" id="trans_note">* Se recalculará en función del pedido y la distancia</p>
-      </div>
-    </div>
-
-    <!-- 10b. ADICIONAL -->
-    <div class="form-section">
-      <div class="section-header" style="background:linear-gradient(135deg,#1a1506,#2a1f08)">
-        <div class="section-number" style="background:#c9a84c;color:#0d0d0d">+</div>
-        <h2>✏️ Petición adicional / personalizada</h2>
-      </div>
-      <div class="section-body">
-        <p style="color:#888;font-size:13px;margin-bottom:16px">¿Quieres más de un mismo producto, o algo que no aparece en el formulario? Cuéntanos aquí con detalle.</p>
-
-        <div id="adicional_items" style="display:flex;flex-direction:column;gap:10px;margin-bottom:14px"></div>
-
-        <button type="button" onclick="addAdicional()" style="display:flex;align-items:center;gap:8px;background:#1a1506;border:1px dashed #c9a84c88;color:#c9a84c;border-radius:8px;padding:10px 16px;cursor:pointer;font-size:13px;font-weight:600;width:100%;justify-content:center">
-          <span style="font-size:18px">＋</span> Añadir producto / petición
-        </button>
-
-        <div style="margin-top:16px;background:#151515;border-radius:8px;padding:12px 14px">
-          <p style="color:#c9a84c;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">💡 Ejemplos de peticiones</p>
-          <div style="display:flex;flex-wrap:wrap;gap:6px" id="adicional_ejemplos">
-            <button type="button" class="ejemplo-chip" onclick="addAdicionalEjemplo(this)" data-texto="2× Pack Cafetera L'Or 200 cafés">2× Pack Cafetera 200 cafés</button>
-            <button type="button" class="ejemplo-chip" onclick="addAdicionalEjemplo(this)" data-texto="3× Canapés Pro 65ud">3× Canapés Pro</button>
-            <button type="button" class="ejemplo-chip" onclick="addAdicionalEjemplo(this)" data-texto="Pack Desayuno 200ud × 2">Pack Desayuno 200ud × 2</button>
-            <button type="button" class="ejemplo-chip" onclick="addAdicionalEjemplo(this)" data-texto="300 vasos de cerveza extra">300 vasos extra</button>
-            <button type="button" class="ejemplo-chip" onclick="addAdicionalEjemplo(this)" data-texto="2× Pack Bebidas Nevera 96ud">2× Pack Bebidas 96ud</button>
-            <button type="button" class="ejemplo-chip" onclick="addAdicionalEjemplo(this)" data-texto="Servicio camarero 2 días">Camarero 2 días</button>
-          </div>
-        </div>
-
-        <input type="hidden" name="adicional_json" id="adicional_json_input">
       </div>
     </div>
 
@@ -1299,17 +1245,45 @@ function pillSync(input) {
 
 function updateBudget() {
   let total = 0;
-  const b = document.querySelector('input[name="barriles"]:checked');
-  if (b) total += +b.dataset.price || 0;
-  const bx = document.querySelector('input[name="barriles_extra"]:checked');
-  if (bx) total += +bx.dataset.price || 0;
-  const v = document.querySelector('input[name="vasos"]:checked');
-  if (v) total += +v.dataset.price || 0;
-  ['bebidas','mob','cat','av','acc','accevt','transporte'].forEach(n => {
+
+  // Radios con precio
+  ['grifo','barriles','barriles_extra','vasos','marca'].forEach(n => {
+    const el = document.querySelector(`input[name="${n}"]:checked`);
+    if (el) total += +el.dataset.price || 0;
+  });
+
+  // Checkboxes con precio
+  ['bebidas','mob','cat','av','acc','accevt','transporte','extras'].forEach(n => {
     document.querySelectorAll(`input[name="${n}"]:checked`).forEach(inp => {
       total += +inp.dataset.price || 0;
     });
   });
+
+  // Nevera 237L +35€
+  if (document.getElementById('chk_nevera96') && document.getElementById('chk_nevera96').checked) total += 35;
+  if (document.getElementById('chk_nevera144') && document.getElementById('chk_nevera144').checked) total += 35;
+
+  // Impresora logo cerveza
+  const impCerv = document.querySelector('input[name="impresora_dias"]:checked');
+  if (impCerv) {
+    const precios = {'1dia':300,'2dias':500,'3dias':675,'4dias':800};
+    total += precios[impCerv.value] || 0;
+  }
+
+  // Impresora logo bebidas
+  const impBeb = document.querySelector('input[name="bebidas_impresora_dias"]:checked');
+  if (impBeb) {
+    const precios = {'1dia':300,'2dias':500,'3dias':675,'4dias':800};
+    total += precios[impBeb.value] || 0;
+  }
+
+  // Impresora logo barista
+  const impBar = document.querySelector('input[name="barista_impresora_dias"]:checked');
+  if (impBar) {
+    const precios = {'1dia':300,'2dias':500,'3dias':675,'4dias':800};
+    total += precios[impBar.value] || 0;
+  }
+
   document.getElementById('budgetAmount').textContent = total.toLocaleString('es-ES') + ' €';
 }
 
@@ -1449,7 +1423,6 @@ function handleSubmit(e) {
     grifo:           getRadio('grifo'),
     barriles:        getRadio('barriles'),
     barriles_extra:  getRadio('barriles_extra'),
-    adicional: (()=>{try{return JSON.parse(document.getElementById('adicional_json_input')?.value||'[]');}catch(e){return [];}})(),
     marca:           getRadio('marca'),
     vasos:           getRadio('vasos'),
     extras:          getChecked('extras'),
@@ -1522,47 +1495,6 @@ function handleSubmit(e) {
 // =====================================================
 // EVENT DELEGATION — replaces all onclick= attributes
 // Works even when Cloudflare rewrites inline handlers
-// ── ADICIONAL ─────────────────────────────────────────────────────────────────
-let adicionalCount = 0;
-
-function addAdicional(texto) {
-  const container = document.getElementById('adicional_items');
-  const id = ++adicionalCount;
-  const row = document.createElement('div');
-  row.className = 'adicional-row';
-  row.dataset.id = id;
-  row.innerHTML = `
-    <input type="number" min="1" max="99" value="1" placeholder="Qty"
-      oninput="syncAdicionalJson()" title="Cantidad">
-    <input type="text" placeholder="Ej: Pack Cafetera L'Or 200 cafés, Canapés Pro, Vasos extra..."
-      value="${texto||''}" oninput="syncAdicionalJson()" style="flex:1">
-    <button type="button" class="adicional-remove" onclick="removeAdicional(${id})" title="Eliminar">✕</button>
-  `;
-  container.appendChild(row);
-  syncAdicionalJson();
-  row.querySelector('input[type="text"]').focus();
-}
-
-function addAdicionalEjemplo(btn) {
-  addAdicional(btn.dataset.texto);
-}
-
-function removeAdicional(id) {
-  const row = document.querySelector(`.adicional-row[data-id="${id}"]`);
-  if (row) { row.remove(); syncAdicionalJson(); }
-}
-
-function syncAdicionalJson() {
-  const rows = document.querySelectorAll('.adicional-row');
-  const items = [];
-  rows.forEach(row => {
-    const qty = parseInt(row.querySelector('input[type="number"]').value)||1;
-    const texto = row.querySelector('input[type="text"]').value.trim();
-    if (texto) items.push({qty, texto});
-  });
-  document.getElementById('adicional_json_input').value = JSON.stringify(items);
-}
-
 // =====================================================
 document.addEventListener('DOMContentLoaded', function() {
 
@@ -1592,50 +1524,33 @@ document.addEventListener('DOMContentLoaded', function() {
       return;
     }
 
-    // .check-option — click en cualquier parte del card
+    // .check-option
     const checkOpt = e.target.closest('.check-option');
-    if (checkOpt) {
-      if (e.target.matches('input[type="checkbox"]')) {
-        // El navegador ya cambió inp.checked; solo sincronizar la clase
-        checkOpt.classList.toggle('selected', e.target.checked);
-        updateBudget();
-      } else {
-        // Click fuera del checkbox: toggle manual
-        checkOpt.classList.toggle('selected');
-        const inp = checkOpt.querySelector('input[type="checkbox"]');
-        if (inp) inp.checked = checkOpt.classList.contains('selected');
-        updateBudget();
-      }
+    if (checkOpt && !e.target.matches('input')) {
+      checkOpt.classList.toggle('selected');
+      const inp = checkOpt.querySelector('input[type="checkbox"]');
+      if (inp) { inp.checked = !inp.checked; }
+      updateBudget();
       return;
     }
 
-    // .pack-card — click en cualquier parte del card
+    // .pack-card
     const packCard = e.target.closest('.pack-card');
-    if (packCard) {
-      if (e.target.matches('input[type="checkbox"]')) {
-        packCard.classList.toggle('selected', e.target.checked);
-        updateBudget();
-      } else {
-        packCard.classList.toggle('selected');
-        const inp = packCard.querySelector('input[type="checkbox"]');
-        if (inp) inp.checked = packCard.classList.contains('selected');
-        updateBudget();
-      }
+    if (packCard && !e.target.matches('input')) {
+      packCard.classList.toggle('selected');
+      const inp = packCard.querySelector('input[type="checkbox"]');
+      if (inp) inp.checked = packCard.classList.contains('selected');
+      updateBudget();
       return;
     }
 
-    // .acc-item — click en cualquier parte del card
+    // .acc-item
     const accItem = e.target.closest('.acc-item');
-    if (accItem) {
-      if (e.target.matches('input[type="checkbox"]')) {
-        accItem.classList.toggle('selected', e.target.checked);
-        updateBudget();
-      } else {
-        accItem.classList.toggle('selected');
-        const inp = accItem.querySelector('input[type="checkbox"]');
-        if (inp) inp.checked = accItem.classList.contains('selected');
-        updateBudget();
-      }
+    if (accItem && !e.target.matches('input')) {
+      accItem.classList.toggle('selected');
+      const inp = accItem.querySelector('input[type="checkbox"]');
+      if (inp) inp.checked = accItem.classList.contains('selected');
+      updateBudget();
       return;
     }
   });
